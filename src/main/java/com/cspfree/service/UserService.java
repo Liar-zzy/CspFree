@@ -1,4 +1,4 @@
-package com.cspfree.www.services;
+package com.cspfree.service;
 
 public interface UserService {
 }
