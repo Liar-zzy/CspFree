@@ -1,12 +1,13 @@
 package com.cspfree.service;
 
-import com.cspfree.pojo.student;
+import com.cspfree.pojo.Student;
+
 
 public interface stuService {
     /**
      * 学生登录
      */
-    student studentLogin(String sid,String password);
+    Student studentLogin(String sid, String password);
 
     /**
      * 学生修改密码

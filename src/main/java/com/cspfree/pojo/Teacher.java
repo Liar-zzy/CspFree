@@ -1,19 +1,19 @@
 package com.cspfree.pojo;
 
-public class admin {
+public class Teacher {
 
-    private String aid;
+    private String tid;
 
     private String name;
 
     private String password;
 
-    public String getAid() {
-        return aid;
+    public String getTid() {
+        return tid;
     }
 
-    public void setAid(String aid) {
-        this.aid = aid;
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 
     public String getName() {
