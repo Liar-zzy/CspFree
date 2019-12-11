@@ -1,6 +1,6 @@
 package com.cspfree.pojo;
 
-public class freelist {
+public class Freelist {
 
     private String sid;
 

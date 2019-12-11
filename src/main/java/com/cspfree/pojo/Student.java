@@ -1,6 +1,6 @@
 package com.cspfree.pojo;
 
-public class student {
+public class Student {
 
     private String sif;
 

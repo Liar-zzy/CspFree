@@ -1,6 +1,6 @@
 package com.cspfree.pojo;
 
-public class stugrade {
+public class Stugrade {
 
     private String sid;
 
