@@ -1,4 +1,4 @@
-package com.cspfree.dao;
+package com.cspfree.mapper;
 
 public interface IUserDao {
 }
