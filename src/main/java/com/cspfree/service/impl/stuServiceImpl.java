@@ -15,4 +15,24 @@ public class stuServiceImpl implements stuService {
     public student studentLogin(String sid, String password) {
         return sMapper.studentLogin(sid,password);
     }
+
+    @Override
+    public void stuChangePasswd(String password) {
+        sMapper.stuChangePasswd(password);
+    }
+
+    @Override
+    public void stuChangeIdentify(String identify) {
+        sMapper.stuChangeIdentify(identify);
+    }
+
+    @Override
+    public void stuSignUp(int isSignUp, String sid) {
+        sMapper.stuSignUp(isSignUp, sid);
+    }
+
+    @Override
+    public void stuUpdateScore(int grade, int session) {
+        sMapper.stuUpdateScore(grade, session);
+    }
 }
