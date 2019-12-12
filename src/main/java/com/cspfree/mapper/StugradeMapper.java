@@ -8,4 +8,15 @@ public interface StugradeMapper {
      */
     @Select("select grade from studentgrade where session = #[session]")
     void findGradeBySession(int session);
+
+    /**
+     * 查询最佳成绩
+     */
+    void findBestGrade(String sid);
+
+    /**
+     * 查找上一次成绩，按找学生的账号
+     */
+    void findLastGrade(String sid);
+
 }
