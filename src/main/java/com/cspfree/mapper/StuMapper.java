@@ -38,4 +38,5 @@ public interface StuMapper {
      */
     @Update("update studentgrade set session = #{session},grade = #{grade}")
     void stuUpdateScore(int grade,int session);
+    //怎么上传不了啊，我裂开了
 }
