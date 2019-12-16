@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccf.mapper.StuGradeMapper">
+
+    <insert id="AddGrade" parameterType="com.ccf.pojo.StuGrade">
+        insert into ccfselection.studentgrade values (#{stuGrade.sid}, #{stuGrade.bestGrade},
+        #{stuGrade.lastGrade}, #{stuGrade.grade}, #{stuGrade.session})
+    </insert>
+
+    <select id="findBestGrade" parameterType="String">
+        select bestGrade from studentgrade where sid = #{sid};
+    </select>
+
+    <select id="findLastGrade" parameterType="String">
+        select lastGrade from studentgrade where sid = #{sid};
+    </select>
+
+</mapper>

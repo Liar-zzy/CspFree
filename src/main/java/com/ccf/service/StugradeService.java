@@ -1,5 +1,7 @@
 package com.ccf.service;
 
+import com.ccf.pojo.StuGrade;
+
 public interface StugradeService {
 
     /**
@@ -7,4 +9,10 @@ public interface StugradeService {
      * @param session
      */
     void findGradeBySession(int session);
+
+
+    /**
+     * 插入成绩
+     * */
+    boolean AddStuGrade(StuGrade stuGrade);
 }
