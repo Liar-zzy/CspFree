@@ -1,8 +1,8 @@
-package com.cspfree.service;
+package com.ccf.service;
 
-import com.cspfree.pojo.Admin;
+import com.ccf.pojo.Admin;
 
-public interface adminService {
+public interface AdminService {
 
     boolean add_admin(Admin admin);
 
@@ -12,4 +12,5 @@ public interface adminService {
 
     boolean mod_admin(Admin admin);
 
+    Admin SignIn(Admin admin);
 }

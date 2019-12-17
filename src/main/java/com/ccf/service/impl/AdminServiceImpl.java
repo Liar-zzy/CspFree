@@ -1,13 +1,13 @@
-package com.cspfree.service.impl;
+package com.ccf.service.impl;
 
-import com.cspfree.mapper.AdminMapper;
-import com.cspfree.pojo.Admin;
-import com.cspfree.service.adminService;
+import com.ccf.pojo.Admin;
+import com.ccf.service.*;
+import com.ccf.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("adminService")
-public class adminServiceImpl implements adminService {
+@Service("AdminService")
+public class AdminServiceImpl implements AdminService {
 
     @Autowired
     public AdminMapper adminMapper;
@@ -36,4 +36,9 @@ public class adminServiceImpl implements adminService {
         return row == 1 ? true : false;
     }
 
+    @Override
+    public Admin SignIn(Admin admin) {
+        Admin admin1 = adminMapper.QueryAdmin(admin);
+        return admin1;
+    }
 }

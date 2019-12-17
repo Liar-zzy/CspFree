@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccf.mapper.AdminMapper">
+
+    <select id="select_admin" parameterType="int" resultType="com.ccf.pojo.Admin">
+        select * from ccfselection.admin where admin.aid = #{selAdmin}
+    </select>
+
+    <insert id="add_admin" parameterType="com.ccf.pojo.Admin">
+        insert into ccfselection.admin values (#{addAdmin.aid}, #{addAdmin.name}, #{addAdmin.password})
+    </insert>
+
+    <update id="modify_admin" parameterType="com.ccf.pojo.Admin">
+        update ccfselection.admin
+        <set>
+            <if test="modAdmin.name != null and modAdmin.name != ''">
+                name = #{modAdmin.name},
+            </if>
+
+            <if test="modAdmin.password != null and modAdmin.password != ''">
+                password = #{modAdmin.password},
+            </if>
+        </set>
+        <where>
+            aid = #{modAdmin.aid}
+        </where>
+    </update>
+
+    <delete id="delete_admin" parameterType="int">
+        delete from ccfselection.admin where aid = #{delAdmin.aid}
+    </delete>
+
+    <select id="QueryAdmin" parameterType="com.ccf.pojo.Admin" resultType="com.ccf.pojo.Admin">
+        select * from ccfselection.admin where aid = #{SignIn.aid} and password = #{SignIn.password}
+    </select>
+
+</mapper>

@@ -27,7 +27,7 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
 
 
-    <context:component-scan base-package="com.xz.mapper"/>
+    <context:component-scan base-package="com.ccf.mapper"/>
     <!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
  </context:component-scan>-->
 
@@ -57,7 +57,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--引入mappers文件-->
-        <property name="mapperLocations" value="classpath:com/xz/mapper/**/*.xml"/>
+        <property name="mapperLocations" value="classpath:com/ccf/mapper/**/*.xml"/>
 
         <property name="configuration">
             <bean class="org.apache.ibatis.session.Configuration">
@@ -88,13 +88,14 @@
     <!--持久层接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.cspfree.mapper"/>
+        <property name="basePackage" value="com.ccf.mapper"/>
     </bean>
 
     <!--事务管理-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
     <!--确定事务管理策略 指向上面的transactionManager-->
     <tx:advice transaction-manager="transactionManager" id="transactionAdvice">
         <tx:attributes>
@@ -110,7 +111,7 @@
     </tx:advice>
 
     <aop:config>
-        <aop:pointcut id="txCut" expression="execution(* com.xz.service..*.*(..))"/>
+        <aop:pointcut id="txCut" expression="execution(* com.ccf.service..*.*(..))"/>
         <aop:advisor advice-ref="transactionAdvice" pointcut-ref="txCut"/>
     </aop:config>
 

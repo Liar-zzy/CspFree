@@ -1,14 +1,14 @@
-package com.cspfree.service.impl;
+package com.ccf.service.impl;
 
-import com.cspfree.mapper.StuMapper;
-import com.cspfree.pojo.Student;
+import com.ccf.mapper.StuMapper;
+import com.ccf.pojo.Student;
 
-import com.cspfree.service.stuService;
+import com.ccf.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("stuService")
-public class stuServiceImpl implements stuService {
+@Service("StuService")
+public class StuServiceImpl implements StuService {
     @Autowired
     private StuMapper sMapper;
 
