@@ -1,4 +1,4 @@
-package com.cspfree.controller;
+package com.ccf.controller;
 
 public class UserController {
 }

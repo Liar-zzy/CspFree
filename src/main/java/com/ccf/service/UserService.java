@@ -1,4 +1,4 @@
-package com.cspfree.service;
+package com.ccf.service;
 
 public interface UserService {
 }

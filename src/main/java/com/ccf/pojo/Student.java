@@ -1,4 +1,4 @@
-package com.cspfree.pojo;
+package com.ccf.pojo;
 
 public class Student {
 

@@ -1,4 +1,4 @@
-package com.cspfree.mapper;
+package com.ccf.mapper;
 
 public interface IUserDao {
 }

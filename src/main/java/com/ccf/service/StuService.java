@@ -1,9 +1,9 @@
-package com.cspfree.service;
+package com.ccf.service;
 
-import com.cspfree.pojo.Student;
+import com.ccf.pojo.Student;
 
 
-public interface stuService {
+public interface StuService {
     /**
      * 学生登录
      */

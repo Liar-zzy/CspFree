@@ -1,4 +1,4 @@
-package com.cspfree.service.impl;
+package com.ccf.service.impl;
 
 public class UserServiceImpl {
 }

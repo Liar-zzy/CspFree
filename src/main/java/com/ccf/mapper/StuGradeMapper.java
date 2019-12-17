@@ -1,8 +1,10 @@
-package com.cspfree.mapper;
+package com.ccf.mapper;
 
+import com.ccf.pojo.StuGrade;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-public interface StugradeMapper {
+public interface StuGradeMapper {
     /**
      * 查询成绩（按不同的届数）session
      */
@@ -19,4 +21,9 @@ public interface StugradeMapper {
      */
     void findLastGrade(String sid);
 
+
+    /**
+    * 上传场次以及成绩
+    * */
+    int AddGrade(@Param("stuGrade") StuGrade stugrade);
 }
