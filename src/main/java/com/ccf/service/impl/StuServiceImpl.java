@@ -23,8 +23,8 @@ public class StuServiceImpl implements StuService {
     }
 
     @Override
-    public void stuChangeIdentify(String identify) {
-        sMapper.stuChangeIdentify(identify);
+    public void stuChangeIdentify(Student student) {
+        sMapper.stuChangeIdentify(student);
     }
 
     @Override

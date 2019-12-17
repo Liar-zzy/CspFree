@@ -17,7 +17,7 @@ public interface StuService {
     /**
      * 修改身份证号
      */
-    void stuChangeIdentify(String identify);
+    void stuChangeIdentify(Student student);
 
     /**
      * 修改报名状态

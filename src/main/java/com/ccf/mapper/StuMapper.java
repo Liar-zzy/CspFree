@@ -22,10 +22,10 @@ public interface StuMapper {
     void stuChangePasswd(String password);
 
     /**
-     * 修改身份证
+     * 修改手机号、身份证号和邮箱
      */
-    @Update("update student set identify = #{identify}")
-    void stuChangeIdentify(String identify);
+    @Update("update student set identify = #{identify},phone=#{phone},email=#{email}")
+    void stuChangeIdentify(Student student);
 
     /**
      * 修改报名状态
