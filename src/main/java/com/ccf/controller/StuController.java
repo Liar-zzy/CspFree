@@ -1,4 +1,6 @@
 package com.ccf.controller;
 
-public class UserController {
+public class StuController {
+
+
 }

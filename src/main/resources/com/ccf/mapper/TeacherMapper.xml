@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccf.mapper.TeacherMapper">
+
+    <insert id="AddTeacher" parameterType="com.ccf.pojo.Teacher">
+        insert into ccfselection.teacher values (#{SignUp.tid}, #{SignUp.name}, #{SignUp.password})
+    </insert>
+
+    <delete id="deleteTeacher" parameterType="int">
+        delete from  ccfselection.teacher where tid = #{SignOut.tid}
+    </delete>
+
+    <select id="QueryTeacher" parameterType="com.ccf.pojo.Teacher" resultType="com.ccf.pojo.Teacher">
+        select * from ccfselection.teacher where tid = #{tSignIn.tid} and password = #{tSignIn.password}
+    </select>
+
+</mapper>

@@ -24,4 +24,8 @@ public interface AdminMapper {
      * */
     Admin select_admin(@Param("selAdmin") int aid);
 
+    /**
+     * 登陆
+     * */
+    Admin QueryAdmin(@Param("SignIn") Admin admin);
 }

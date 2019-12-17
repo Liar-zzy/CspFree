@@ -36,4 +36,9 @@ public class AdminServiceImpl implements AdminService {
         return row == 1 ? true : false;
     }
 
+    @Override
+    public Admin SignIn(Admin admin) {
+        Admin admin1 = adminMapper.QueryAdmin(admin);
+        return admin1;
+    }
 }

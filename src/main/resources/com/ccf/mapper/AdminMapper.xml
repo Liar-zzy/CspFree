@@ -30,4 +30,8 @@
         delete from ccfselection.admin where aid = #{delAdmin.aid}
     </delete>
 
+    <select id="QueryAdmin" parameterType="com.ccf.pojo.Admin" resultType="com.ccf.pojo.Admin">
+        select * from ccfselection.admin where aid = #{SignIn.aid} and password = #{SignIn.password}
+    </select>
+
 </mapper>

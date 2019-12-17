@@ -12,4 +12,5 @@ public interface AdminService {
 
     boolean mod_admin(Admin admin);
 
+    Admin SignIn(Admin admin);
 }
