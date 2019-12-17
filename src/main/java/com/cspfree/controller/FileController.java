@@ -65,10 +65,10 @@ public class FileController {
             if(row.getCell(6)!=null){//获取学校
                 row.getCell(6).setCellType(CellType.STRING);
             }
-            if(row.getCell(9)!=null){//获取成绩单编号
+            if(row.getCell(9)!=null){//获取成绩单编号，从编号里面获取届数
                 row.getCell(9).setCellType(CellType.STRING);
             }
-            if(row.getCell(11)!=null){//获取成绩单编号
+            if(row.getCell(11)!=null){//获取成绩
                 row.getCell(11).setCellType(CellType.STRING);
             }
             String orderCode = row.getCell(0).getStringCellValue(); //订单编号
