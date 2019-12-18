@@ -4,7 +4,9 @@ layui.use(['form','layer','jquery'],function(){
         $ = layui.jquery;
 
     $(".loginBody .seraph").click(function(){
+
         layer.msg(" ??",{
+
             time:5000
         });
     })

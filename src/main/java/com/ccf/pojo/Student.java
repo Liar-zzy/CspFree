@@ -2,7 +2,7 @@ package com.ccf.pojo;
 
 public class Student {
 
-    private String sif;
+    private String sid;
 
     private String name;
 
@@ -12,12 +12,12 @@ public class Student {
 
     private String identify;
 
-    public String getSif() {
-        return sif;
+    public String getSid() {
+        return sid;
     }
 
-    public void setSif(String sif) {
-        this.sif = sif;
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 
     public String getName() {

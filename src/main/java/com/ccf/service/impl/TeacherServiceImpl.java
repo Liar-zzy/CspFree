@@ -3,9 +3,13 @@ package com.ccf.service.impl;
 import com.ccf.mapper.TeacherMapper;
 import com.ccf.pojo.Teacher;
 import com.ccf.service.TeacherService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("TeacherService")
 public class TeacherServiceImpl implements TeacherService {
 
+    @Autowired
     public TeacherMapper teacherMapper;
 
     @Override
