@@ -1,23 +1,23 @@
 package com.ccf.pojo;
 
-public class Student {
+public class User {
 
-    private String sid;
+    private String id;
 
     private String name;
 
     private String password;
 
-    private String isSginUp;
+    private String isSignUp;
 
     private String identify;
 
-    public String getSid() {
-        return sid;
+    public String getId() {
+        return id;
     }
 
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -37,11 +37,11 @@ public class Student {
     }
 
     public String getIsSginUp() {
-        return isSginUp;
+        return isSignUp;
     }
 
     public void setIsSginUp(String isSginUp) {
-        this.isSginUp = isSginUp;
+        this.isSignUp = isSginUp;
     }
 
     public String getIdentify() {
