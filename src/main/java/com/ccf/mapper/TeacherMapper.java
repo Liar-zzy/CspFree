@@ -4,7 +4,6 @@ import com.ccf.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 public interface TeacherMapper {
-
     /**
      * 添加用户
      * */
