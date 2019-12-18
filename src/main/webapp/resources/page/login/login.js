@@ -4,7 +4,9 @@ layui.use(['form','layer','jquery'],function(){
         $ = layui.jquery;
 
     $(".loginBody .seraph").click(function(){
-        layer.msg("这只是做个样式，至于功能，你见过哪个后台能这样登录的？还是老老实实的找管理员去注册吧",{
+
+        layer.msg(" ??",{
+
             time:5000
         });
     })
@@ -13,7 +15,7 @@ layui.use(['form','layer','jquery'],function(){
     form.on("submit(login)",function(data){
         $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
         setTimeout(function(){
-            window.location.href = "/layuicms2.0";
+
         },1000);
         return false;
     })

@@ -2,7 +2,9 @@
 	{
 		"title": "成绩分析",
 		"icon": "&#xe655;",
-		"href": "page/.html",
+
+		"href": "page/gradeAll.html",
+
 		"spread": true
 	},
 	{

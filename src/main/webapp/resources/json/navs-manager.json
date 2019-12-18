@@ -2,7 +2,9 @@
 	{
 		"title": "上传成绩",
 		"icon": "&#xe655;",
-		"href": "page/.html",
+
+		"href": "page/teaupGrade.html",
+
 		"spread": true
 	},
 	{
@@ -26,21 +28,27 @@
 		]
 	},
 	{
-		"title": "查看成绩分析",
+
+		"title": "查看免费名单",
+
 		"icon": "&#xe716;",
 		"href": "",
 		"spread": false
 	},
 	{
-		"title": "名额设定",
+
+		"title": "查看成绩分析",
 		"icon": "&#xe630;",
-		"href": "",
+		"href": "page/teaupGrade.html",
+
 		"spread": false
 	},
 	{
 		"title": "个人中心",
 		"icon": "&#xe630;",
-		"href": "",
+
+		"href": "page/user/userInfo.html",
+
 		"spread": false
 	}
 ]
