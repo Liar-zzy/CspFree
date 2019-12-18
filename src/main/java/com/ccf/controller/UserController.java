@@ -1,8 +1,8 @@
 package com.ccf.controller;
 
 
-import com.ccf.pojo.Student;
-import com.ccf.service.StuService;
+import com.ccf.pojo.User;
+import com.ccf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,25 +14,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/stu")
-public class StuController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
-    public StuService stuService;
+    public UserService stuService;
 
     @RequestMapping("/login")
     @ResponseBody
-    public Map<String,String> login(@RequestBody Student student, HttpSession session)
+    public Map<String,String> login(@RequestBody User user, HttpSession session)
     {
         Map<String,String> map=new HashMap<>();
-        System.out.println("传入的 User :   "+student.getName() + "password: "+student.getPassword() );
+        System.out.println("传入的 User Id :   "+user.getId() + "  password: "+user.getPassword() );
 
-        student = stuService.studentLogin(student.getSid(),student.getPassword());
+        user = stuService.userLogin(user.getId(),user.getPassword());
 
-        if(student!=null){
+        if(user!=null){
             System.out.println("login success");
 
-            session.setAttribute("SESSION_USER", student);
+            session.setAttribute("SESSION_USER", user);
             map.put("logincheck","success");
 
             //成功后 传回角色信息
@@ -42,6 +42,7 @@ public class StuController {
             System.out.println("login failure");
             map.put("logincheck","failure");
         }
+
         return map;
     }
 

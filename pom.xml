@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.hanhan</groupId>
@@ -227,7 +227,7 @@
       <artifactId>poi-ooxml-schemas</artifactId>
       <version>3.17</version>
     </dependency>
-    
+
     <!--文件上传-->
     <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
     <dependency>
@@ -242,11 +242,10 @@
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
     </dependency>
-      <dependency>
-          <groupId>org.apache.commons</groupId>
-          <artifactId>commons-parent</artifactId>
-          <version>41</version>
-      </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.apache.commons</groupId>-->
+<!--      <artifactId>commons-parent</artifactId>-->
+<!--      <version>1.1.0</version>-->
 
   </dependencies>
 
