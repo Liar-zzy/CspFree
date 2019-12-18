@@ -30,7 +30,9 @@
 			<img src="../../images/code.jpg">
 		</div>
 		<div class="layui-form-item">
-			<button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
+
+			<button class="layui-btn layui-block" lay-filter="login" lay-submit id="login">登录</button>
+
 		</div>
 		<div class="layui-form-item layui-row">
 			<a href="javascript:;" class="seraph icon-qq layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
@@ -42,4 +44,69 @@
 	<script type="text/javascript" src="login.js"></script>
 	<script type="text/javascript" src="../../js/cache.js"></script>
 </body>
+
+<script>
+	layui.use(['layer', 'form', 'element'], function(){
+		var layer = layui.layer
+				,form = layui.form
+				,element = layui.element
+		window.test = function(){
+			//JS代码
+		}
+	});
+	$('#login').click(function () {
+
+		var name=$('input[id=userName]').val();
+		var password=$('input[id=password]').val();
+
+		var obj={
+			username:name,
+			password:password
+		}
+		$.ajax({
+			url:'${ctx}/user/login',
+			type:'post',
+			contentType:'application/json',
+			data:JSON.stringify(obj),
+			success:function (data) {
+				console.log(data)
+				// if(data.logincheck=="success"){
+				// 	layer.msg('登录成功');
+				// 	window.setTimeout( function(){}, 2 * 1000 );
+				//
+				// 	if(data.role=="ACE"){
+				// 		window.location.href="index-admin.jsp";
+				// 		return false;
+				// 	}
+				// 	else if(data.role=="FIX"){
+				// 		window.location.href="index-fix.jsp";
+				// 		return false
+				// 	}
+				// 	else if(data.role=="MAC"){
+				// 		window.location.href="index-machine.jsp";
+				// 		return false
+				// 	}
+				// 	else if(data.role=="CH"){
+				// 		window.location.href="index-manufac.jsp";
+				// 		return false
+				// 	}
+				// }
+				// else{
+				//
+				// 	layer.msg('账号密码错误');
+				//
+				// 	setTimeout(function(){
+				// 	},2000);
+				//
+				// 	$('input[id=login_username]').val("");
+				// 	$('input[id=login_password]').val("");
+				//
+				// }
+			}
+
+		})
+
+	});
+</script>
+
 </html>
