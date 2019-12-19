@@ -4,13 +4,19 @@ public class StuGrade {
 
     private String sid;
 
-    private int bestGrade;
-
-    private int lastGrade;
-
     private int grade;
 
-    private String session;
+    private int session;
+
+    private int First;
+
+    private int Second;
+
+    private int Third;
+
+    private int Fourth;
+
+    private int Fifth;
 
     public String getSid() {
         return sid;
@@ -18,22 +24,6 @@ public class StuGrade {
 
     public void setSid(String sid) {
         this.sid = sid;
-    }
-
-    public int getBestGrade() {
-        return bestGrade;
-    }
-
-    public void setBestGrade(int bestGrade) {
-        this.bestGrade = bestGrade;
-    }
-
-    public int getLastGrade() {
-        return lastGrade;
-    }
-
-    public void setLastGrade(int lastGrade) {
-        this.lastGrade = lastGrade;
     }
 
     public int getGrade() {
@@ -44,11 +34,65 @@ public class StuGrade {
         this.grade = grade;
     }
 
-    public String getSession() {
+    public int getSession() {
         return session;
     }
 
-    public void setSession(String session) {
+    public void setSession(int session) {
         this.session = session;
+    }
+
+    public int getFirst() {
+        return First;
+    }
+
+    public void setFirst(int first) {
+        First = first;
+    }
+
+    public int getSecond() {
+        return Second;
+    }
+
+    public void setSecond(int second) {
+        Second = second;
+    }
+
+    public int getThird() {
+        return Third;
+    }
+
+    public void setThird(int third) {
+        Third = third;
+    }
+
+    public int getFourth() {
+        return Fourth;
+    }
+
+    public void setFourth(int fourth) {
+        Fourth = fourth;
+    }
+
+    public int getFifth() {
+        return Fifth;
+    }
+
+    public void setFifth(int fifth) {
+        Fifth = fifth;
+    }
+
+    @Override
+    public String toString() {
+        return "StuGrade{" +
+                "sid='" + sid + '\'' +
+                ", grade=" + grade +
+                ", session=" + session +
+                ", First=" + First +
+                ", Second=" + Second +
+                ", Third=" + Third +
+                ", Fourth=" + Fourth +
+                ", Fifth=" + Fifth +
+                '}';
     }
 }

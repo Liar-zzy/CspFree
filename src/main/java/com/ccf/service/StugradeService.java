@@ -15,4 +15,10 @@ public interface StugradeService {
      * 插入成绩
      * */
     boolean AddStuGrade(StuGrade stuGrade);
+
+    /**
+     * 上传学生成绩
+     * @param stuGrade
+     */
+    void StuGradeUpload(StuGrade stuGrade);
 }

@@ -23,4 +23,10 @@ public class StuGradeServiceImpl implements StugradeService {
         int row = sMapper.AddGrade(stuGrade);
         return row == 1 ? true : false;
     }
+
+    @Override
+    public void StuGradeUpload(StuGrade stuGrade) {
+        sMapper.StuGradeUpload(stuGrade);
+        System.out.println("StuGradeUpload doing");
+    }
 }

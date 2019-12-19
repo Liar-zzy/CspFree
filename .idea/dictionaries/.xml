@@ -2,7 +2,9 @@
   <dictionary name="少一">
     <words>
       <w>cspfree</w>
+      <w>studentgrade</w>
       <w>stugrade</w>
+      <w>upfile</w>
     </words>
   </dictionary>
 </component>
