@@ -18,18 +18,18 @@ public class FreeListController {
     @Autowired
     private FreeListService freeListService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/getFreeList")
     @ResponseBody
     public String ListAllFreeList(Model model)
     {
         List<FreeList> list;
         list = freeListService.getFreelist();
-        model.addAttribute("ListAllUser",list);
+        model.addAttribute("FreeList",list);
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
         }
-        System.out.println("list all user");
-        return "admin-freelist";
+        System.out.println("free list");
+        return "page/admin-freelist";
     }
 }
