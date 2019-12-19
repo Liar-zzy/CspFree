@@ -15,7 +15,7 @@ public class FreeListFreeListImpl implements FreeListService {
     private FreeListMapper freeListMapper;
 
     @Override
-    public List<FreeList> Freelist() {
+    public List<FreeList> getFreelist() {
         List<FreeList> list = freeListMapper.getFreeList();
         return list;
     }

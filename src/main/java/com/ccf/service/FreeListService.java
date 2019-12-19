@@ -10,5 +10,5 @@ public interface FreeListService {
     /**
      * 获取免费名单
      * */
-    List<FreeList> Freelist();
+    List<FreeList> getFreelist();
 }
