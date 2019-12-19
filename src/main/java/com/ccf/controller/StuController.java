@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/stu")
+@RequestMapping("/user")
 public class StuController {
 
     @Autowired
@@ -22,17 +22,17 @@ public class StuController {
 
     @RequestMapping("/login")
     @ResponseBody
-    public Map<String,String> login(@RequestBody Student student, HttpSession session)
+    public Map<String,String> login(@RequestBody Student user, HttpSession session)
     {
         Map<String,String> map=new HashMap<>();
-        System.out.println("传入的 User :   "+student.getName() + "password: "+student.getPassword() );
+        System.out.println("传入的 User :   "+user.getName() + "password: "+user.getPassword() );
 
-        student = stuService.studentLogin(student.getSid(),student.getPassword());
+        user = stuService.studentLogin(user.getSid(),user.getPassword());
 
-        if(student!=null){
+        if(user!=null){
             System.out.println("login success");
 
-            session.setAttribute("SESSION_USER", student);
+            session.setAttribute("SESSION_USER", user);
             map.put("logincheck","success");
 
             //成功后 传回角色信息
