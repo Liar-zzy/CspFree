@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 <!--						<a href="javascript:;"><i class="seraph icon-lock"></i><cite>锁屏</cite></a>-->
 <!--					</li>-->
 					<li class="layui-nav-item" id="userInfo">
-						<a href="javascript:;"><img src="images/face.jpg" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName">超级管理员</cite></a>
+						<a href="javascript:;"><img src="images/face.jpg" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName">${SESSION_USER.name}</cite></a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
@@ -50,7 +51,7 @@
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
 				<a class="img" title="我的头像" ><img src="images/face.jpg" class="userAvatar"></a>
-				<p>你好！<span class="userName">超级管理员</span>, 欢迎登录</p>
+				<p>你好！<span class="userName">${SESSION_USER.name}</span>, 欢迎登录</p>
 			</div>
 			<!-- 搜索 -->
 <!--			<div class="layui-form component">-->
@@ -64,7 +65,7 @@
 			<div class="navBar layui-side-scroll" id="navBar">
 				<ul class="layui-nav layui-nav-tree">
 					<li class="layui-nav-item layui-this">
-						<a href="javascript:;" data-url="page/main.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+						<a href="javascript:;" data-url="page/main.html"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a>
 					</li>
 				</ul>
 			</div>
@@ -73,7 +74,7 @@
 		<div class="layui-body layui-form">
 			<div class="layui-tab mag0" lay-filter="bodyTab" id="top_tabs_box">
 				<ul class="layui-tab-title top_tab" id="top_tabs">
-					<li class="layui-this" lay-id=""><i class="layui-icon">&#xe68e;</i> <cite>后台首页</cite></li>
+					<li class="layui-this" lay-id=""><i class="layui-icon">&#xe68e;</i> <cite>首页</cite></li>
 				</ul>
 				<ul class="layui-nav closeBox">
 				  <li class="layui-nav-item">
@@ -87,7 +88,7 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="page/main.html"></iframe>
+						<iframe src="page/main.jsp"></iframe>
 					</div>
 				</div>
 			</div>
@@ -114,14 +115,36 @@
 		"bodyTab" : "bodyTab"
 	})
 	layui.use(['bodyTab','form','element','layer','jquery'],function(){
+
+		var role='${sessionScope.SESSION_USER.role}';
+
+		console.log(role)
+
 		var form = layui.form,
 			element = layui.element;
 			$ = layui.$;
 	    	layer = parent.layer === undefined ? layui.layer : top.layer;
-			tab = layui.bodyTab({
-				openTabNum : "50",  //最大可打开窗口数量
-				url : "json/navs-stu.json" //获取菜单json地址
-			});
+	    	if(role=='学生')
+			{
+				tab = layui.bodyTab({
+					openTabNum : "50",  //最大可打开窗口数量
+					url : "json/navs-stu.json" //获取菜单json地址
+				});
+			}
+	    	else if(role=='老师')
+			{
+				tab = layui.bodyTab({
+					openTabNum : "50",  //最大可打开窗口数量
+					url : "json/navs-teacher.json" //获取菜单json地址
+				});
+			}
+	    	else{
+				tab = layui.bodyTab({
+					openTabNum : "50",  //最大可打开窗口数量
+					url : "json/navs-manager.json" //获取菜单json地址
+				});
+			}
+
 
 		//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
 		function getData(json){

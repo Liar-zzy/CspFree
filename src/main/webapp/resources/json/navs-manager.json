@@ -5,7 +5,7 @@
 
 		"href": "page/teaupGrade.html",
 
-		"spread": true
+		"spread": false
 	},
 	{
 		"title": "用户管理",
@@ -39,7 +39,7 @@
 
 		"title": "查看成绩分析",
 		"icon": "&#xe630;",
-		"href": "page/teaupGrade.html",
+		"href": "page/teaupGrade.jsps",
 
 		"spread": false
 	},
@@ -47,7 +47,7 @@
 		"title": "个人中心",
 		"icon": "&#xe630;",
 
-		"href": "page/user/userInfo.html",
+		"href": "page/user/userInfo.jsp",
 
 		"spread": false
 	}

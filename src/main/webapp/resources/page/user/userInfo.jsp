@@ -1,8 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>个人资料--layui后台管理模板 2.0</title>
+	<title>个人中心</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,47 +17,41 @@
 <form class="layui-form layui-row">
 	<div class="layui-col-md6 layui-col-xs12">
 		<div class="layui-form-item">
-			<label class="layui-form-label">用户名</label>
+			<label class="layui-form-label">ID</label>
 			<div class="layui-input-block">
-				<input type="text" value="用户名" disabled class="layui-input layui-disabled">
+				<input type="text" value="${SESSION_USER.id}" disabled class="layui-input layui-disabled" readonly="true">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">姓名</label>
+			<div class="layui-input-block">
+				<input type="text" value="${SESSION_USER.name}" disabled class="layui-input layui-disabled" readonly="true">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">用户身份</label>
 			<div class="layui-input-block">
-				<input type="text" value="超级管理员" disabled class="layui-input layui-disabled">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">姓名</label>
-			<div class="layui-input-block">
-				<input type="text" value="姓名" disabled class="layui-input layui-disabled">
-			</div>
-		</div>
-		<div class="layui-form-item" pane="">
-			<label class="layui-form-label">性别</label>
-			<div class="layui-input-block userSex">
-				<input type="radio" name="sex" value="男" title="男" checked="">
-				<input type="radio" name="sex" value="女" title="女">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">手机号码</label>
-			<div class="layui-input-block">
-				<input type="tel" value="" placeholder="请输入手机号码" lay-verify="phone" class="layui-input userPhone">
+				<input type="text" value="${SESSION_USER.role}" disabled class="layui-input layui-disabled" readonly="true">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">身份证号</label>
 			<div class="layui-input-block">
-				<input type="tel" value="" placeholder="请输入身份证号" lay-verify="phone" class="layui-input userPhone">
+				<input type="tel" value="${SESSION_USER.identify}"  lay-verify="phone" class="layui-input userPhone" readonly="true">
 			</div>
 		</div>
-		
+		<div class="layui-form-item">
+			<label class="layui-form-label">手机号码</label>
+			<div class="layui-input-block">
+				<input type="tel" value="${SESSION_USER.phone}" s lay-verify="phone" class="layui-input userPhone">
+			</div>
+		</div>
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">邮箱</label>
 			<div class="layui-input-block">
-				<input type="text" value="" placeholder="请输入邮箱" lay-verify="email" class="layui-input userEmail">
+				<input type="text" value="${SESSION_USER.email}"  lay-verify="email" class="layui-input userEmail">
 			</div>
 		</div>
 		
