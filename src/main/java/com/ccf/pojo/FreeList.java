@@ -1,6 +1,6 @@
 package com.ccf.pojo;
 
-public class Freelist {
+public class FreeList {
 
     private String sid;
 

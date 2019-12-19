@@ -3,7 +3,9 @@ package com.ccf.mapper;
 import com.ccf.pojo.StuGrade;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface StuGradeMapper {
     /**
      * 查询成绩（按不同的届数）session
