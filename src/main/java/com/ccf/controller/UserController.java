@@ -1,8 +1,8 @@
 package com.ccf.controller;
 
 
-import com.ccf.pojo.Student;
-import com.ccf.service.StuService;
+import com.ccf.pojo.User;
+import com.ccf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,19 +15,19 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
-public class StuController {
+public class UserController {
 
     @Autowired
-    public StuService stuService;
+    public UserService stuService;
 
     @RequestMapping("/login")
     @ResponseBody
-    public Map<String,String> login(@RequestBody Student user, HttpSession session)
+    public Map<String,String> login(@RequestBody User user, HttpSession session)
     {
         Map<String,String> map=new HashMap<>();
-        System.out.println("传入的 User :   "+user.getName() + "password: "+user.getPassword() );
+        System.out.println("传入的 User Id :   "+user.getId() + "  password: "+user.getPassword() );
 
-        user = stuService.studentLogin(user.getSid(),user.getPassword());
+        user = stuService.userLogin(user.getId(),user.getPassword());
 
         if(user!=null){
             System.out.println("login success");
@@ -42,6 +42,7 @@ public class StuController {
             System.out.println("login failure");
             map.put("logincheck","failure");
         }
+
         return map;
     }
 

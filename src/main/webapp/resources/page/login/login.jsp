@@ -1,8 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html class="loginHtml">
 <head>
 	<meta charset="utf-8">
-	<title>登录--layui后台管理模板 2.0</title>
+	<title>Csp-Free</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -44,7 +46,7 @@
 	<script type="text/javascript" src="login.js"></script>
 	<script type="text/javascript" src="../../js/cache.js"></script>
 </body>
-
+<script src="../../jquery-3.4.1/jquery-3.4.1.js"></script>
 <script>
 	layui.use(['layer', 'form', 'element'], function(){
 		var layer = layui.layer
@@ -60,9 +62,10 @@
 		var password=$('input[id=password]').val();
 
 		var obj={
-			username:name,
+			id:name,
 			password:password
 		}
+		console.log(obj)
 		$.ajax({
 			url:'${ctx}/user/login',
 			type:'post',
