@@ -1,9 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>echarts</title>
-<link rel="stylesheet" href="resources/layui/css/layui.css">
+<link rel="stylesheet" href="../layui/css/layui.css">
 </head>
 <body>
 
@@ -12,7 +13,7 @@
 		<div id="main" style="width: 530px; height: 400px;"></div>
 	</div>
 
-	<script src="resources/layui/layui.js"></script>
+	<script src="../layui/layui.js"></script>
 	<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.min.js"></script>
 	<script type="text/javascript">
 		//监听事件

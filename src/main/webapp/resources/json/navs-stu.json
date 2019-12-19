@@ -3,7 +3,7 @@
 		"title": "认证列表",
 		"icon": "&#xe655;",
 		"href": "page/getFree.html",
-		"spread": true
+		"spread": false
 	},
 	{
 		"title": "录入考试成绩",

@@ -73,38 +73,22 @@
 			data:JSON.stringify(obj),
 			success:function (data) {
 				console.log(data)
-				// if(data.logincheck=="success"){
-				// 	layer.msg('登录成功');
-				// 	window.setTimeout( function(){}, 2 * 1000 );
-				//
-				// 	if(data.role=="ACE"){
-				// 		window.location.href="index-admin.jsp";
-				// 		return false;
-				// 	}
-				// 	else if(data.role=="FIX"){
-				// 		window.location.href="index-fix.jsp";
-				// 		return false
-				// 	}
-				// 	else if(data.role=="MAC"){
-				// 		window.location.href="index-machine.jsp";
-				// 		return false
-				// 	}
-				// 	else if(data.role=="CH"){
-				// 		window.location.href="index-manufac.jsp";
-				// 		return false
-				// 	}
-				// }
-				// else{
-				//
-				// 	layer.msg('账号密码错误');
-				//
-				// 	setTimeout(function(){
-				// 	},2000);
-				//
-				// 	$('input[id=login_username]').val("");
-				// 	$('input[id=login_password]').val("");
-				//
-				// }
+				if(data.logincheck=="success"){
+					layer.msg('登录成功');
+					window.setTimeout( function(){}, 2 * 1000 );
+					window.location.href="../../index.jsp";
+				}
+				else{
+
+					layer.msg('账号密码错误');
+					setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+						window.location.reload();//页面刷新
+					},2000);
+
+					$('input[id=login_username]').val("");
+					$('input[id=login_password]').val("");
+
+				}
 			}
 
 		})

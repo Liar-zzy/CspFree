@@ -33,6 +33,7 @@ public class UserController {
             System.out.println("login success");
 
             session.setAttribute("SESSION_USER", user);
+
             map.put("logincheck","success");
 
             //成功后 传回角色信息
