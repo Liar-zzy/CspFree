@@ -1,12 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
+<c:set var="webRoot" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>查看免费名单</title>
-<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
-<script type="text/javascript" src="../layui/layui.js"></script>
+<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css" media="all" />
+<script type="text/javascript" src="${webRoot}/resources/layui/layui.js"></script>
 </head>
 <body>	
  		
@@ -41,7 +45,7 @@
 				<div class="layui-inline">
 					<label class="layui-form-label"><p1 style="font-size:16px;">姓名：</p1></label>
 					<div class="layui-input-inline">
-						<input class="layui-input" name="input" value="${input }">
+						<input class="layui-input" name="input" value="${input}">
 					</div>
 					<input type="submit" class="layui-btn layui-btn-danger" value="搜索">
 					<button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">设定免费人数(默认150)</button>
@@ -70,7 +74,7 @@
 			<c:forEach items="${FreeList}" var="user" >
 				<tr>
 
-					<td>${user.id}</td>
+					<td>${user.sid}</td>
 					<td>${user.name}</td>
 					<td>${user.classNom}</td>
 					<td>${user.rank}</td>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -19,17 +20,19 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-    @ResponseBody
-    public String ListAllFreeList(Model model)
+    public ModelAndView ListAllFreeList()
     {
         List<FreeList> list;
         list = freeListService.getFreelist();
-        model.addAttribute("FreeList",list);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("FreeList",list);
+
+        modelAndView.setViewName("page/admin-freelist");
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
         }
         System.out.println("free list");
-        return "page/admin-freelist";
+        return modelAndView;
     }
 }
