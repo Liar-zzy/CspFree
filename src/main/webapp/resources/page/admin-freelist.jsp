@@ -1,12 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
+<c:set var="webRoot" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>查看免费名单</title>
-<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
-<script type="text/javascript" src="../layui/layui.js"></script>
+<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css" media="all" />
+<script type="text/javascript" src="${webRoot}/resources/layui/layui.js"></script>
 </head>
 <body>	
  		
@@ -41,7 +45,7 @@
 				<div class="layui-inline">
 					<label class="layui-form-label"><p1 style="font-size:16px;">姓名：</p1></label>
 					<div class="layui-input-inline">
-						<input class="layui-input" name="input" value="${input }">
+						<input class="layui-input" name="input" value="${input}">
 					</div>
 					<input type="submit" class="layui-btn layui-btn-danger" value="搜索">
 					<button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">设定免费人数(默认150)</button>
@@ -59,19 +63,20 @@
 		</div> -->
 		<thead>
 			<tr>
-				<th lay-data="{field:'0',align:'center',width:50}"></th>
 				<th lay-data="{field:'1',align:'center'}" >学号</th>
 				<th lay-data="{field:'2',align:'center',width:240}">姓名</th>
+				<th lay-data="{field:'3',align:'center', sort: true,width:240}">班级</th>
 				<th lay-data="{field:'3',align:'center', sort: true,width:150}">选拔赛成绩</th>
 				<!-- <th lay-data="{field:'11', toolbar:'#userBar' ,width:250,align:'center', fixed:'right'}">操作</th> -->
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${users}" var="user" >
+			<c:forEach items="${FreeList}" var="user" >
 				<tr>
-					<td>空</td>
-					<td>${user.id}</td>
+
+					<td>${user.sid}</td>
 					<td>${user.name}</td>
+					<td>${user.classNom}</td>
 					<td>${user.rank}</td>
 
 				</tr>

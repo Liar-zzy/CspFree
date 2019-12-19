@@ -1,10 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<% String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
+<c:set var="webRoot" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>考试报名</title>
-<link rel="stylesheet" href="../layui/css/layui.css">
+<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css">
 <style type="text/css">
 .font_ {
 	font-size: 30px;

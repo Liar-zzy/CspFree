@@ -1,10 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
+<c:set var="webRoot" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>echarts</title>
-<link rel="stylesheet" href="../layui/css/layui.css">
+<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css">
 </head>
 <body>
 
@@ -13,7 +18,7 @@
 		<div id="main" style="width: 530px; height: 400px;"></div>
 	</div>
 
-	<script src="../layui/layui.js"></script>
+	<script src="${webRoot}/resources/layui/layui.js"></script>
 	<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.min.js"></script>
 	<script type="text/javascript">
 		//监听事件

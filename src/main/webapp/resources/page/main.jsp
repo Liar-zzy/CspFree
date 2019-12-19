@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+%>
+<c:set var="webRoot" value="<%=basePath%>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +15,8 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../css/public.css" media="all" />
+	<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="${webRoot}/resources/css/public.css" media="all" />
 </head>
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote layui-bg-green">

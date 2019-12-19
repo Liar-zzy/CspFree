@@ -32,14 +32,14 @@
 		"title": "查看免费名单",
 
 		"icon": "&#xe716;",
-		"href": "",
+		"href": "/FreeList/getFreeList",
 		"spread": false
 	},
 	{
 
 		"title": "查看成绩分析",
 		"icon": "&#xe630;",
-		"href": "page/teaupGrade.jsps",
+		"href": "page/teaupGrade.jsp",
 
 		"spread": false
 	},
