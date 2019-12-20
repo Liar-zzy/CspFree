@@ -70,7 +70,7 @@
 			<c:forEach items="${FreeList}" var="user" >
 				<tr>
 
-					<td>${user.id}</td>
+					<td>${user.sid}</td>
 					<td>${user.name}</td>
 					<td>${user.classNom}</td>
 					<td>${user.rank}</td>
