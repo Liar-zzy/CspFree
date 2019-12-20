@@ -32,7 +32,18 @@ public class FreeListController {
         ModelAndView modelAndView = new ModelAndView();
         List<FreeList> list;
 
-        if(name == "null")
+        boolean isgetFreeList=true;
+
+        list = freeListService.getAFreelist(name);
+        if (list.size()==0)
+        {
+            isgetFreeList=true;
+        }
+        else{
+            isgetFreeList=false;
+        }
+
+        if( isgetFreeList)
         {
             list = freeListService.getFreelist();
             modelAndView.addObject("FreeList",list);

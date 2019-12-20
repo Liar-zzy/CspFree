@@ -10,4 +10,5 @@ public interface FreeListMapper {
     List<FreeList> getFreeList();
 
     List<FreeList> getAFreeList(@Param("name")String  name);
+
 }

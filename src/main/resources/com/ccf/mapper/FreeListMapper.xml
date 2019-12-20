@@ -5,8 +5,7 @@
     <select id="getFreeList" resultType="com.ccf.pojo.FreeList">
         select * from  freelist;
     </select>
-    <select id="getAFreeList" resultType="com.ccf.pojo.FreeList">
+    <select id="getAFreeList" resultType="com.ccf.pojo.FreeList" parameterType="string">
         select * from freelist where name = #{name};
     </select>
-
 </mapper>

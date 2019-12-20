@@ -66,17 +66,17 @@
             <h1 style="color: green">查看免费名单</h1>
         </legend>
     </fieldset>
-    <form class="layui-form" action="/FreeList/getFreeList?name=">
+    <form class="layui-form" action="/FreeList/getFreeList?name=#searchname">
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">
                     <p1 style="font-size:16px;">姓名：</p1>
                 </label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" name="input" id="seachname">
+                    <input class="layui-input" name="input" id="searchname">
                 </div>
-<%--                <input type="submit" class="layui-btn layui-btn-danger" value="搜索" id="search" action="form_action" >--%>
-                <button class="layui-btn" data-type="reload">搜索</button>
+                <input type="submit" class="layui-btn layui-btn-danger" value="搜索" id="search" action="form_action" >
+<%--                <button class="layui-btn" data-type="reload">搜索</button>--%>
                 <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">设定免费人数(默认150)</button>
             </div>
         </div>
@@ -115,7 +115,7 @@
 <!-- 数据表格结束 -->
 <!-- 添加和修改的弹出层开始 -->
 	<div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
-		<form class="layui-form " action="https://www.layui.com/demo/layer.html" lay-filter="dataFrm" id="dataFrm">
+		<form class="layui-form " action="" lay-filter="dataFrm" id="dataFrm">
 			<div class="layui-form-item" >
 					<label class="layui-form-label" style="color:red">分数线：</label>
 					<div class="layui-input-inline">
