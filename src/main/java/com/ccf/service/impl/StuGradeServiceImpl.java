@@ -31,4 +31,10 @@ public class StuGradeServiceImpl implements StuGradeService {
         List<StuGrade> list = sMapper.getAllGrade(session);
         return list;
     }
+
+    @Override
+    public List<StuGrade> ListSelfGrade(String sid) {
+        List<StuGrade> list = sMapper.getSelfGrade(sid);
+        return list;
+    }
 }

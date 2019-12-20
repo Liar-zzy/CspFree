@@ -7,6 +7,8 @@ import com.ccf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -41,5 +43,17 @@ public class UserServiceImpl implements UserService {
     public boolean UpdateInfo(User user) {
         int row = sMapper.UpdateInfo(user);
         return row == 1? true : false;
+    }
+
+    @Override
+    public List<User> getAllStu() {
+        List<User> list = sMapper.getAllStu();
+        return list;
+    }
+
+    @Override
+    public List<User> getAllTeacher() {
+        List<User> list = sMapper.getAllTeacher();
+        return list;
     }
 }

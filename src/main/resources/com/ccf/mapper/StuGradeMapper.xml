@@ -7,15 +7,12 @@
         #{stuGrade.lastGrade}, #{stuGrade.grade}, #{stuGrade.session})
     </insert>
 
-    <select id="findBestGrade" parameterType="String">
-        select bestGrade from studentgrade where sid = #{sid};
-    </select>
-
-    <select id="findLastGrade" parameterType="String">
-        select lastGrade from studentgrade where sid = #{sid};
-    </select>
-
     <select id="getAllGrade" parameterType="int" resultType="com.ccf.pojo.StuGrade">
-        select * from studentgrade order by grade desc where  session = #{getAll.session};
+        select * from studentgrade order by grade desc where session = #{getAll};
     </select>
+
+    <select id="getSelfGrade" parameterType="String" resultType="com.ccf.pojo.StuGrade">
+        select * from studentgrade where sid = #{selfGrade};
+    </select>
+
 </mapper>

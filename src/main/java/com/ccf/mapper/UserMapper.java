@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserMapper {
     /**
@@ -44,4 +46,14 @@ public interface UserMapper {
      * 修改信息
      * */
     int UpdateInfo(@Param("updateInfo") User user);
+
+    /**
+     * 查询所有学生
+     * */
+    List<User> getAllStu();
+
+    /**
+     * 查询所有老师
+     * */
+    List<User> getAllTeacher();
 }

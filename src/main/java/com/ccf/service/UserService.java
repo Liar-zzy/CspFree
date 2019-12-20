@@ -2,6 +2,8 @@ package com.ccf.service;
 
 import com.ccf.pojo.User;
 
+import java.util.List;
+
 
 public interface UserService {
     /**
@@ -29,5 +31,18 @@ public interface UserService {
      */
     void userUpdateScore(int grade,int session);
 
+    /**
+     * 更新个人信息
+     * */
     boolean UpdateInfo(User user);
+
+    /**
+     * 查询所有学生
+     * */
+    List<User> getAllStu();
+
+    /**
+     * 查询所有老师
+     * */
+    List<User> getAllTeacher();
 }

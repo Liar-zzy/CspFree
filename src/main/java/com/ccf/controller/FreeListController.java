@@ -25,7 +25,6 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-
     public ModelAndView ListAllFreeList(@Param("num")String num,@Param("name")String name, HttpServletRequest request)
     {
         System.out.println("num :"+num);

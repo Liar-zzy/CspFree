@@ -14,7 +14,7 @@
             </if>
 
             <if test="updateInfo.identify != null and updateInfo.identify != ''">
-                identity = #{updateInfo.identify},
+                identify = #{updateInfo.identify},
             </if>
 
             <if test="updateInfo.email != null and updateInfo.email != ''">
@@ -34,4 +34,11 @@
         </where>
     </update>
 
+    <select id="getAllStu" resultType="com.ccf.pojo.User">
+        select * from user where role = "学生";
+    </select>
+
+    <select id="getAllTeacher" resultType="com.ccf.pojo.User">
+        select * from user where role = "老师";
+    </select>
 </mapper>
