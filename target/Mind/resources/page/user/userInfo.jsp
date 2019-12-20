@@ -54,6 +54,13 @@
 				<input type="text" value="${SESSION_USER.email}"  lay-verify="email" class="layui-input userEmail">
 			</div>
 		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">密码</label>
+			<div class="layui-input-block">
+				<input type="text" value="${SESSION_USER.password}"  lay-verify="password" class="layui-input userPassword">
+			</div>
+		</div>
 		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
