@@ -15,7 +15,7 @@
 
 	<div style="display: flex">
 		<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-		<div id="main" style="width: 530px; height: 400px;"></div>
+		<div id="main" style="width: 1000px; height: 500px;"></div>
 	</div>
 
 	<script src="${webRoot}/resources/layui/layui.js"></script>
@@ -42,7 +42,7 @@
 			        trigger: 'axis'
 			    },
 			    legend: {
-			        data:['答对人数','正确率']
+			        data:['均分','正确率']
 			    },
 			    toolbox: {
 			        show : true,
@@ -63,7 +63,7 @@
 			    yAxis : [
 			        {
 			            type : 'value',
-			            name:'答对人数'
+			            name:'均分'
 			        },
 			        {
 			            type : 'value',
@@ -74,23 +74,60 @@
 			    ],
 			    series : [
 			        {
-			            name:'答对人数',
+			            name:'均分',
 			            type:'bar',
-			            data:[200, 150, 40, 70, 10],
+			            data:[],
 			            
 			        },
 			        {
 			            name:'正确率',
 			            type:'line',
-			            data:[0.7, 0.6, 0.33, 0.2, 0.1],
+			            data:[],
 			            yAxisIndex: 1,
 			            
 			        }
 			    ]
 			};
 
-		// 使用刚指定的配置项和数据显示图表。
-		myChart.setOption(option);
+		$.ajax({
+			type: "get",
+			url: "${ctx}/resources/stuGrade/ListFirstToFifth",
+			cache : false,    //禁用缓存
+			dataType: "json",
+			success: function(result) {
+
+				var averageA=[];
+				var fenshu=[]
+				console.log(result)
+				for(var i=0;i<result.length;i++) {
+
+					console.log(result[i].average)
+					console.log(result[i].accuracy)
+
+					// names.push(result[i].name);
+					// var obj = new Object();
+					// obj.name = result[i].name;
+					// obj.value = result[i].value;
+
+					// console.log(result[i].name)
+					// console.log(result[i].value)
+					averageA.push(result[i].average)
+					fenshu.push(result[i].accuracy);
+				}
+				console.log(averageA)
+				console.log(fenshu)
+				myChart.setOption(option);
+				myChart.setOption({ //加载数据图表
+					series: [{
+						data: averageA
+					},
+						{
+						data:fenshu
+					}
+					]
+				});
+			},
+		});
 	</script>
 </body>
 </html>

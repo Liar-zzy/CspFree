@@ -31,4 +31,13 @@ public class Grade {
     public void setAccuracy(double accuracy) {
         this.accuracy = accuracy;
     }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "name='" + name + '\'' +
+                ", average=" + average +
+                ", accuracy=" + accuracy +
+                '}';
+    }
 }
