@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface FreeListService {
 
-
     /**
      * 获取免费名单
      */

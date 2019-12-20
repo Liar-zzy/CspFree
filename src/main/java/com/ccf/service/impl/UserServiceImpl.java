@@ -62,4 +62,10 @@ public class UserServiceImpl implements UserService {
         int row = sMapper.ChangeRight(tid);
         return row == 1 ? true : false;
     }
+
+    @Override
+    public boolean deleteUser(String id) {
+        int row = sMapper.deleteUser(id);
+        return row == 1 ? true : false;
+    }
 }

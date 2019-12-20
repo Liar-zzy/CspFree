@@ -128,4 +128,23 @@ public class UserController {
         return map;
     }
 
+    @RequestMapping("/deleteUser")
+    public Map<String, String> deleteUser(Model model, @Param("id")String id)
+    {
+        boolean success;
+        success = userService.deleteUser(id);
+        Map<String, String> map = new HashMap<>();
+
+        if(success == true)
+        {
+            map.put("deleteUser", "success");
+            System.out.println("deleteUser success");
+        }
+        else
+        {
+            map.put("deleteUser", "fail");
+            System.out.println("deleteUser fail");
+        }
+        return map;
+    }
 }
