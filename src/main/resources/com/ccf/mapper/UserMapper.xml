@@ -41,4 +41,8 @@
     <select id="getAllTeacher" resultType="com.ccf.pojo.User">
         select * from user where role = "老师";
     </select>
+
+    <update id="ChangeRight" parameterType="string">
+        update user set role = "管理员" where id = #{tid}
+    </update>
 </mapper>

@@ -56,4 +56,10 @@ public class UserServiceImpl implements UserService {
         List<User> list = sMapper.getAllTeacher();
         return list;
     }
+
+    @Override
+    public boolean ChangeRightOfTeacher(String tid) {
+        int row = sMapper.ChangeRight(tid);
+        return row == 1 ? true : false;
+    }
 }

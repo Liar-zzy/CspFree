@@ -2,8 +2,10 @@ package com.ccf.controller;
 
 import com.ccf.pojo.User;
 import com.ccf.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -105,5 +107,25 @@ public class UserController {
         return mv;
     }
 
+
+    @RequestMapping("/ChangeRightOfTeacher")
+    public Map<String, String> ChangeRightOfTeacher(Model model, @Param("tid")String tid)
+    {
+        boolean success;
+        success = userService.ChangeRightOfTeacher(tid);
+        Map<String, String> map = new HashMap<>();
+
+        if(success == true)
+        {
+            map.put("RightUpdate", "success");
+            System.out.println("RightUpdate success");
+        }
+        else
+        {
+            map.put("RightUpdate", "fail");
+            System.out.println("RightUpdate fail");
+        }
+        return map;
+    }
 
 }
