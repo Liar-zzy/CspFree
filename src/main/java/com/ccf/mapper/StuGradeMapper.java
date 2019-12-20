@@ -3,6 +3,7 @@ package com.ccf.mapper;
 import com.ccf.pojo.StuGrade;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,4 +30,9 @@ public interface StuGradeMapper {
      */
     List<StuGrade> getSelfGrade(@Param("selfGrade") String sid);
 
+    /**
+     * 导入excel文件写入数据库
+     */
+    @Update("insert into studentgrade(sid,grade,session,First,Second,Third,Fourth,Fifth) values(#{sid},#{grade},#{session},#{First},#{Second},#{Third},#{Fourth},#{Fifth})")
+    void StuGradeUpload(StuGrade stuGrade);
 }
