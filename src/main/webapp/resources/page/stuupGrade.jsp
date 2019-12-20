@@ -10,6 +10,8 @@
 		<meta charset="UTF-8">
 		<title>录入考试成绩</title>
 		<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css">
+		<script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery-3.4.1.js"></script>
+
 		<style type="text/css">
 			.font_ {
 				font-size: 30px;

@@ -33,6 +33,31 @@
     }
 </script>
 
+<%--<script>--%>
+<%--    $('#search').click(function () {--%>
+<%--        var searchname=$('#seachname').val();--%>
+
+<%--        var alteredobj={--%>
+<%--            name:searchname,--%>
+<%--        }--%>
+<%--        $.ajax({--%>
+<%--            url:'${ctx}/FreeList/getFreeList',--%>
+<%--            type:'post',--%>
+<%--            contentType:'application/json',--%>
+<%--            data:JSON.stringify(alteredobj),--%>
+<%--            success:function (data) {--%>
+<%--                if(data.update=="success"){--%>
+<%--                    layer.msg("修改成功")--%>
+<%--                }--%>
+<%--                setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒--%>
+<%--                    window.location.reload();//页面刷新--%>
+<%--                },2000);--%>
+<%--            }--%>
+<%--        })--%>
+
+<%--    });--%>
+<%--</script>--%>
+
 <!-- 搜索条件开始 -->
 <div class="menu">
     <fieldset class="layui-elem-field layui-field-title"
@@ -41,16 +66,17 @@
             <h1 style="color: green">查看免费名单</h1>
         </legend>
     </fieldset>
-    <form class="layui-form" >
+    <form class="layui-form" action="/FreeList/getFreeList?name=">
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">
                     <p1 style="font-size:16px;">姓名：</p1>
                 </label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" name="input" value="${input}">
+                    <input class="layui-input" name="input" id="seachname">
                 </div>
-                <input type="submit" class="layui-btn layui-btn-danger" value="搜索">
+<%--                <input type="submit" class="layui-btn layui-btn-danger" value="搜索" id="search" action="form_action" >--%>
+                <button class="layui-btn" data-type="reload">搜索</button>
                 <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">设定免费人数(默认150)</button>
             </div>
         </div>
