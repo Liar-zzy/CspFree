@@ -50,4 +50,9 @@ public interface UserService {
      * 权限设置 老师->管理员
      * */
     boolean ChangeRightOfTeacher(String tid);
+
+    /**
+     * 删除用户
+     * */
+    boolean deleteUser(String id);
 }

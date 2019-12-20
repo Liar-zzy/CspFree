@@ -60,5 +60,10 @@ public interface UserMapper {
     /**
      * 权限设置 老师->管理员
      * */
-    int ChangeRight(String tid);
+    int ChangeRight(@Param("tid") String tid);
+
+    /**
+     * 删除用户
+     * */
+    int deleteUser(@Param("id") String id);
 }
