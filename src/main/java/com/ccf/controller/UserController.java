@@ -76,7 +76,6 @@ public class UserController {
     {
         ModelAndView mv = new ModelAndView();
         List<User> list = userService.getAllStu();
-        //session.setAttribute("SESSION_STU", list);
         mv.addObject("SESSION_STU", list);
 
         for (int i = 0; i < list.size(); i++)
@@ -85,7 +84,7 @@ public class UserController {
             System.out.println(list.get(i).getRole());
         }
 
-        mv.setViewName("page/");
+        mv.setViewName("page/student_list");
         return mv;
     }
 
@@ -94,7 +93,6 @@ public class UserController {
     {
         ModelAndView mv = new ModelAndView();
         List<User> list = userService.getAllTeacher();
-        //session.setAttribute("SESSION_STU", list);
         mv.addObject("SESSION_TEA", list);
 
         for (int i = 0; i < list.size(); i++)
@@ -103,13 +101,13 @@ public class UserController {
             System.out.println(list.get(i).getRole());
         }
 
-        mv.setViewName("page/");
+        mv.setViewName("page/teacher_list");
         return mv;
     }
 
 
     @RequestMapping("/ChangeRightOfTeacher")
-    public Map<String, String> ChangeRightOfTeacher(Model model, @Param("tid")String tid)
+    public Map<String, String> changeRightOfTeacher(Model model, @Param("tid")String tid)
     {
         boolean success;
         success = userService.ChangeRightOfTeacher(tid);
