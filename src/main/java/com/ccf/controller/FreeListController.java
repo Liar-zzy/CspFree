@@ -68,6 +68,8 @@ public class FreeListController {
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
+            System.out.println(list.get(i).getClassNom());
+            System.out.println(list.get(i).getRank());
         }
         System.out.println("free list");
 

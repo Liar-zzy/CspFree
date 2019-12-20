@@ -54,10 +54,17 @@
 				<input type="text" value="${SESSION_USER.email}"  lay-verify="email" class="layui-input userEmail">
 			</div>
 		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">密码</label>
+			<div class="layui-input-block">
+				<input type="text" value="${SESSION_USER.password}"  lay-verify="password" class="layui-input userPassword">
+			</div>
+		</div>
 		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
+				<button class="layui-btn" lay-submit="" id="alterAll" lay-filter="changeUser">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>

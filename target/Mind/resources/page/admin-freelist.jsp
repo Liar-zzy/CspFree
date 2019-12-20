@@ -72,7 +72,7 @@
         <th lay-data="{field:'1',align:'center'}">学号</th>
         <th lay-data="{field:'2',align:'center',width:240}">姓名</th>
         <th lay-data="{field:'3',align:'center', sort: true,width:240}">班级</th>
-        <th lay-data="{field:'3',align:'center', sort: true,width:150}">选拔赛成绩</th>
+        <th lay-data="{field:'4',align:'center', sort: true,width:150}">选拔赛成绩</th>
         <!-- <th lay-data="{field:'11', toolbar:'#userBar' ,width:250,align:'center', fixed:'right'}">操作</th> -->
     </tr>
     </thead>

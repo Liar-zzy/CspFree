@@ -3,7 +3,7 @@
 <mapper namespace="com.ccf.mapper.FreeListMapper">
 
     <select id="getFreeList" resultType="com.ccf.pojo.FreeList">
-        select * from  freelist;
+        select * from  freelist order by rank ASC ;
     </select>
     <select id="getAFreeList" resultType="com.ccf.pojo.FreeList" parameterType="string">
         select * from freelist where name = #{name};
