@@ -17,4 +17,5 @@ public interface FreeListService {
      * 获取单个学生免费名单
      */
     List<FreeList> getAFreelist(@Param("name") String name);
+
 }

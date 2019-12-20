@@ -3,6 +3,7 @@ package com.ccf.controller;
 import com.ccf.pojo.FreeList;
 import com.ccf.pojo.User;
 import com.ccf.service.FreeListService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,15 +25,30 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-    @ResponseBody
-    public ModelAndView ListAllFreeList(String name,HttpServletRequest request)
+
+    public ModelAndView ListAllFreeList(@Param("num")String num,@Param("name")String name, HttpServletRequest request)
     {
+        System.out.println("num :"+num);
+
+
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("SESSION_USER");
         ModelAndView modelAndView = new ModelAndView();
         List<FreeList> list;
 
-        if(name == "null")
+        boolean isgetFreeList=true;
+
+        list = freeListService.getAFreelist(name);
+
+        if (list.size()==0)
+        {
+            isgetFreeList=true;
+        }
+        else{
+            isgetFreeList=false;
+        }
+
+        if( isgetFreeList)
         {
             list = freeListService.getFreelist();
             modelAndView.addObject("FreeList",list);
@@ -54,6 +70,8 @@ public class FreeListController {
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
+            System.out.println(list.get(i).getClassNom());
+            System.out.println(list.get(i).getRank());
         }
         System.out.println("free list");
 

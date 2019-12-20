@@ -25,4 +25,5 @@ public class FreeListFreeListImpl implements FreeListService {
         List<FreeList> list = freeListMapper.getAFreeList(name);
         return list;
     }
+
 }
