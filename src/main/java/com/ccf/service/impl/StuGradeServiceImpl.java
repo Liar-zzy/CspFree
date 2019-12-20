@@ -37,4 +37,10 @@ public class StuGradeServiceImpl implements StuGradeService {
         List<StuGrade> list = sMapper.getSelfGrade(sid);
         return list;
     }
+
+    @Override
+    public void StuGradeUpload(StuGrade stuGrade) {
+        sMapper.StuGradeUpload(stuGrade);
+        System.out.println("StuGradeUpload doing");
+    }
 }
