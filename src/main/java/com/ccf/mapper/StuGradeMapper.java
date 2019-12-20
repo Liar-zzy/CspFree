@@ -14,18 +14,6 @@ public interface StuGradeMapper {
      */
     @Select("select grade from studentgrade where session = #[session]")
     void findGradeBySession(int session);
-
-    /**
-     * 查询最佳成绩
-     */
-    void findBestGrade(String sid);
-
-    /**
-     * 查找上一次成绩，按找学生的账号
-     */
-    void findLastGrade(String sid);
-
-
     /**
     * 上传场次以及成绩
     * */
@@ -35,4 +23,10 @@ public interface StuGradeMapper {
      * 按届数查询成绩
      * */
     List<StuGrade> getAllGrade(@Param("getAll") int session);
+
+    /**
+     * 查询自己的成绩
+     */
+    List<StuGrade> getSelfGrade(@Param("selfGrade") String sid);
+
 }

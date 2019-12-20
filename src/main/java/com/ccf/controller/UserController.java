@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -66,4 +68,42 @@ public class UserController {
         }
         return map;
     }
+
+    @RequestMapping("/ListAllStu")
+    public ModelAndView ListAllStu(HttpSession session)
+    {
+        ModelAndView mv = new ModelAndView();
+        List<User> list = userService.getAllStu();
+        //session.setAttribute("SESSION_STU", list);
+        mv.addObject("SESSION_STU", list);
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            System.out.println(list.get(i).getName());
+            System.out.println(list.get(i).getRole());
+        }
+
+        mv.setViewName("page/");
+        return mv;
+    }
+
+    @RequestMapping("/ListAllTeacher")
+    public ModelAndView ListAllTeacher(HttpSession session)
+    {
+        ModelAndView mv = new ModelAndView();
+        List<User> list = userService.getAllTeacher();
+        //session.setAttribute("SESSION_STU", list);
+        mv.addObject("SESSION_TEA", list);
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            System.out.println(list.get(i).getName());
+            System.out.println(list.get(i).getRole());
+        }
+
+        mv.setViewName("page/");
+        return mv;
+    }
+
+
 }

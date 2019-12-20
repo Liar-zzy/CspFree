@@ -19,7 +19,7 @@ public class StuGradeController {
     @Autowired
     private StuGradeService stuGradeService;
 
-    @RequestMapping("ListAllGradeBySession")
+    @RequestMapping("/ListAllGradeBySession")
     @ResponseBody
     public ModelAndView ListAllGradeBySession(Model model, int session)
     {
@@ -33,5 +33,21 @@ public class StuGradeController {
         System.out.println("ListAllGrade");
         me.setViewName("page/stuGradeAll");
         return me;
+    }
+
+    @RequestMapping("/ListSelfGrade")
+    @ResponseBody
+    public ModelAndView ListSelfGrade(Model model, String sid)
+    {
+        List<StuGrade> list = stuGradeService.ListSelfGrade(sid);
+        ModelAndView mv = new ModelAndView();
+        model.addAttribute("ListSelfGrade",list);
+        for (int i = 0; i < list.size(); i++)
+        {
+            System.out.println(list.get(i).getSid());
+        }
+        System.out.println("ListSelfGrade");
+        mv.setViewName("page/");
+        return mv;
     }
 }

@@ -13,7 +13,6 @@ public interface StuGradeService {
      */
     void findGradeBySession(int session);
 
-
     /**
      * 插入成绩
      * */
@@ -22,5 +21,10 @@ public interface StuGradeService {
     /**
      * 按届数查询成绩
      * */
-    List<StuGrade> ListAllGradeBySession(@Param("getAll") int session);
+    List<StuGrade> ListAllGradeBySession(int session);
+
+    /**
+     * 查询自己成绩
+     * */
+    List<StuGrade> ListSelfGrade(String sid);
 }
