@@ -1,0 +1,18 @@
+{
+	"cmsName": "layuiCMS后台管理模版",
+	"version": "v2.0",
+
+	"author": "csp-free",
+
+	"homePage": "index.html",
+	"server": "windows",
+	"dataBase": "8.00.2039",
+	"maxUpload": "2M",
+	"userRights": "超级管理员",
+
+	"description": "",
+	"powerby": "copyright @2019 CspFree",
+	"record": "1",
+	"keywords": "1"
+
+}

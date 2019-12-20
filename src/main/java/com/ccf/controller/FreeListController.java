@@ -19,18 +19,23 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-    @ResponseBody
-    public ModelAndView ListAllFreeList(Model model)
+
+    public ModelAndView ListAllFreeList()
     {
-        List<FreeList> list = freeListService.getFreelist();
-        ModelAndView me = new ModelAndView();
-        model.addAttribute("FreeList",list);
+        List<FreeList> list;
+        list = freeListService.getFreelist();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("FreeList",list);
+
+        modelAndView.setViewName("page/admin-freelist");
+
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
         }
         System.out.println("free list");
-        me.setViewName("page/admin-freelist");
-        return me;
+
+        return modelAndView;
+
     }
 }
