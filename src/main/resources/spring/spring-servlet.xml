@@ -27,8 +27,8 @@
 
 
     <!--启用注解 (扫描) 排除了service注解-->
-    <context:component-scan base-package="com.ccf">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    <context:component-scan base-package="com.ccf.controller">
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
     </context:component-scan>
 
     <!--视图解析器-->
