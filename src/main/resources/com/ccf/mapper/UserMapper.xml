@@ -14,7 +14,7 @@
             </if>
 
             <if test="updateInfo.identify != null and updateInfo.identify != ''">
-                identity = #{updateInfo.identify},
+                identify = #{updateInfo.identify},
             </if>
 
             <if test="updateInfo.email != null and updateInfo.email != ''">

@@ -24,7 +24,7 @@
 	{
 		"title": "个人中心",
 		"icon": "&#xe630;",
-		"href": "page/user/userInfo.html",
+		"href": "page/user/userInfo.jspa",
 		"spread": false
 	}
 ]
