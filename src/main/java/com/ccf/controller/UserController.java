@@ -1,6 +1,5 @@
 package com.ccf.controller;
 
-
 import com.ccf.pojo.User;
 import com.ccf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    public UserService stuService;
+    public UserService userService;
 
     @RequestMapping("/login")
     @ResponseBody
@@ -27,7 +26,7 @@ public class UserController {
         Map<String,String> map=new HashMap<>();
         System.out.println("传入的 User Id :   "+user.getId() + "  password: "+user.getPassword() );
 
-        user = stuService.userLogin(user.getId(),user.getPassword());
+        user = userService.userLogin(user.getId(),user.getPassword());
 
         if(user!=null){
             System.out.println("login success");
@@ -53,7 +52,18 @@ public class UserController {
     {
         Map<String, String> map = new HashMap<>();
         boolean success;
+        success = userService.UpdateInfo(user);
 
+        if(success == true)
+        {
+            map.put("update", "success");
+            System.out.println("update success");
+        }
+        else
+        {
+            map.put("update", "fail");
+            System.out.println("update fail");
+        }
         return map;
     }
 }
