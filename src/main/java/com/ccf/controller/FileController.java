@@ -22,7 +22,7 @@ public class FileController {
         // 获取文件名
         String fileName = file.getOriginalFilename();
         if (StringUtils.isEmpty(fileName)){
-            return "文件不能为空";
+            return "文件不能为空"; 
         }
         // 获取文件后缀
         String prefix=fileName.substring(fileName.lastIndexOf("."));
