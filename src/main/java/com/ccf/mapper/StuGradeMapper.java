@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StuGradeMapper {
     /**
@@ -28,4 +30,9 @@ public interface StuGradeMapper {
     * 上传场次以及成绩
     * */
     int AddGrade(@Param("stuGrade") StuGrade stugrade);
+
+    /**
+     * 按届数查询成绩
+     * */
+    List<StuGrade> getAllGrade(@Param("getAll") int session);
 }
