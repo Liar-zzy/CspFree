@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>考试报名</title>
+    <script src="${webRoot}/resources/layui/layui.js"></script>
     <link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css">
     <script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery-3.4.1.js"></script>
     <style type="text/css">
@@ -55,29 +56,47 @@
 </fieldset>
 <ul class="layui-timeline">
     <li class="layui-timeline-item"><i
-            class="layui-icon layui-timeline-axis"></i>
+            class="layui-icon layui-timeline-axis"></i>
         <div class="layui-timeline-content layui-text layui-card">
             <div class="layui-timeline-title layui-card-header">
-                <span class="font_">第十八次CCF计算机软件能力认证</span>
-                <button type="button" class="layui-btn layui-btn-lg register">认证报名</button>
+                <span class="font_">第二十次CCF计算机软件能力认证</span>
+                <button type="button" class="layui-btn layui-btn-lg register" id="getFree">
+                    <jsp:useBean id="SESSION_USER" scope="session" type="com.ccf.pojo.User"/>
+                    <c:set var="isSign" scope="session" value="${SESSION_USER.isSignUp}"/>
+                    <c:if test="${isSign == '1'}">
+                        已报名
+                    </c:if>
+                    <c:if test="${isSign != '1'}">
+                        认证报名
+                    </c:if>
+                </button>
             </div>
         </div>
     </li>
     <li class="layui-timeline-item"><i
-            class="layui-icon layui-timeline-axis"></i>
+            class="layui-icon layui-timeline-axis"></i>
         <div class="layui-timeline-content layui-text layui-card">
             <div class="layui-timeline-title layui-card-header">
-                <span class="font_">第十八次CCF计算机软件能力认证</span>
-                <button type="button" class="layui-btn layui-btn-lg register">认证报名</button>
+                <span class="font_">第十九次CCF计算机软件能力认证</span>
+                <button type="button" style="color: #4E5465" class="layui-btn layui-btn-lg register">已截止</button>
             </div>
         </div>
     </li>
     <li class="layui-timeline-item"><i
-            class="layui-icon layui-timeline-axis"></i>
+            class="layui-icon layui-timeline-axis"></i>
         <div class="layui-timeline-content layui-text layui-card">
             <div class="layui-timeline-title layui-card-header">
                 <span class="font_">第十八次CCF计算机软件能力认证</span>
-                <button type="button" class="layui-btn layui-btn-lg register">认证报名</button>
+                <button type="button" style="color: #4E5465" class="layui-btn layui-btn-lg register">已截止</button>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item"><i
+            class="layui-icon layui-timeline-axis"></i>
+        <div class="layui-timeline-content layui-text layui-card">
+            <div class="layui-timeline-title layui-card-header">
+                <span class="font_">第十七次CCF计算机软件能力认证</span>
+                <button type="button" style="color: #4E5465" class="layui-btn layui-btn-lg register">已截止</button>
             </div>
         </div>
     </li>
@@ -91,6 +110,39 @@
         var element = layui.element;
 
     })
+</script>
+
+<script>
+
+    $('#getFree').click(function () {
+        <%--console.log("点击getFree")--%>
+        <%--var alteredobj={--%>
+
+        <%--}--%>
+
+        <%--$.ajax({--%>
+        <%--    url:'${ctx}/user/modify',--%>
+        <%--    type:'post',--%>
+        <%--    contentType:'application/json',--%>
+        <%--    data:JSON.stringify(alteredobj),--%>
+        <%--    success:function (data) {--%>
+        <%--         if(data.update=="success"){--%>
+        <%--         	layer.msg("报名成功")--%>
+        <%--         }--%>
+        <%--        setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒--%>
+        <%--            window.location.reload();//页面刷新--%>
+        <%--        },2000);--%>
+        <%--    }--%>
+        <%--})--%>
+        console.log("点击getFree")
+
+        $.ajax({
+            type: 'POST',
+            url: '${ctx}/user/signUp',
+        });
+
+
+    });
 </script>
 </body>
 </html>
