@@ -28,4 +28,6 @@ public interface UserService {
      * 上传成绩
      */
     void userUpdateScore(int grade,int session);
+
+    boolean UpdateInfo(User user);
 }

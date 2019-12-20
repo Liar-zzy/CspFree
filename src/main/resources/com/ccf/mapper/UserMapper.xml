@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccf.mapper.UserMapper">
+
+    <update id="UpdateInfo" parameterType="com.ccf.pojo.User">
+        update user
+        <set>
+            <if test="updateInfo.password != null and updateInfo.password != ''">
+                password = #{updateInfo.password},
+            </if>
+
+            <if test="updateInfo.isSignUp != null and updateInfo.isSignUp != ''">
+                isSignUp = #{updateInfo.isSginUp},
+            </if>
+
+            <if test="updateInfo.identify != null and updateInfo.identify != ''">
+                identity = #{updateInfo.identify},
+            </if>
+
+            <if test="updateInfo.email != null and updateInfo.email != ''">
+                email = #{updateInfo.email},
+            </if>
+
+            <if test="updateInfo.phone != null and updateInfo.phone != ''">
+                phone = #{updateInfo.phone},
+            </if>
+
+            <if test="updateInfo.role != null and updateInfo.role != ''">
+                role = #{updateInfo.role}
+            </if>
+        </set>
+        <where>
+            id = #{updateInfo.id}
+        </where>
+    </update>
+
+</mapper>

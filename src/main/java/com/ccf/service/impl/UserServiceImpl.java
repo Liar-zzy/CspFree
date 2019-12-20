@@ -36,4 +36,10 @@ public class UserServiceImpl implements UserService {
     public void userUpdateScore(int grade, int session) {
         sMapper.userUpdateScore(grade, session);
     }
+
+    @Override
+    public boolean UpdateInfo(User user) {
+        int row = sMapper.UpdateInfo(user);
+        return row == 1? true : false;
+    }
 }

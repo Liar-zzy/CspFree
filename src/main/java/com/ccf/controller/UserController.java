@@ -47,4 +47,13 @@ public class UserController {
         return map;
     }
 
+    @RequestMapping("/modify")
+    @ResponseBody
+    public Map<String, String> ModifyInfo(@RequestBody User user, HttpSession session)
+    {
+        Map<String, String> map = new HashMap<>();
+        boolean success;
+
+        return map;
+    }
 }
