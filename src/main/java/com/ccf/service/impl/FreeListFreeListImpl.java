@@ -19,4 +19,10 @@ public class FreeListFreeListImpl implements FreeListService {
         List<FreeList> list = freeListMapper.getFreeList();
         return list;
     }
+
+    @Override
+    public List<FreeList> getAFreelist(String name) {
+        List<FreeList> list = freeListMapper.getAFreeList(name);
+        return list;
+    }
 }

@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+import static com.baomidou.mybatisplus.core.toolkit.StringPool.NULL;
+
 @Controller
 @RequestMapping("/FreeList")
 public class FreeListController {
@@ -22,16 +24,24 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-
-    public ModelAndView ListAllFreeList(HttpServletRequest request)
+    public ModelAndView ListAllFreeList(String name,HttpServletRequest request)
     {
+
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("SESSION_USER");
-
-        List<FreeList> list;
-        list = freeListService.getFreelist();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("FreeList",list);
+        List<FreeList> list;
+
+        if(name == "null")
+        {
+            list = freeListService.getFreelist();
+            modelAndView.addObject("FreeList",list);
+        }
+        else {
+            System.out.println("name : "+name);
+            list = freeListService.getAFreelist(name);
+            modelAndView.addObject("FreeList",list);
+        }
 
         if(user.getRole()=="老师")
         {
@@ -41,8 +51,6 @@ public class FreeListController {
             modelAndView.setViewName("page/admin-freelist");
         }
 
-
-
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
@@ -50,6 +58,5 @@ public class FreeListController {
         System.out.println("free list");
 
         return modelAndView;
-
     }
 }

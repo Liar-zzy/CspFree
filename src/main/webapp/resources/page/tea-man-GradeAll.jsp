@@ -20,6 +20,8 @@
 
 	<script src="${webRoot}/resources/layui/layui.js"></script>
 	<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.min.js"></script>
+	<script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery-3.4.1.js"></script>
+
 	<script type="text/javascript">
 		//监听事件
 		layui.use([ 'element', 'jquery' ], function() {
