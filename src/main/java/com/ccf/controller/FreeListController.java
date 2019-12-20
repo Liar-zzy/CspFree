@@ -24,9 +24,9 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
+    @ResponseBody
     public ModelAndView ListAllFreeList(String name,HttpServletRequest request)
     {
-
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("SESSION_USER");
         ModelAndView modelAndView = new ModelAndView();
@@ -59,4 +59,5 @@ public class FreeListController {
 
         return modelAndView;
     }
+
 }
