@@ -1,6 +1,5 @@
 package com.ccf.controller;
 
-
 import com.ccf.pojo.FreeList;
 import com.ccf.service.FreeListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,7 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
+
     public ModelAndView ListAllFreeList()
     {
         List<FreeList> list;
@@ -28,11 +28,14 @@ public class FreeListController {
         modelAndView.addObject("FreeList",list);
 
         modelAndView.setViewName("page/admin-freelist");
+
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getName());
         }
         System.out.println("free list");
+
         return modelAndView;
+
     }
 }
