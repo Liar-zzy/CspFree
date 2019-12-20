@@ -16,6 +16,6 @@
     </select>
 
     <select id="getAllGrade" parameterType="int" resultType="com.ccf.pojo.StuGrade">
-        select * from studentgrade where  session = #{getAll.session};
+        select * from studentgrade order by grade desc where  session = #{getAll.session};
     </select>
 </mapper>
