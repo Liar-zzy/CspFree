@@ -45,4 +45,9 @@ public interface UserService {
      * 查询所有老师
      * */
     List<User> getAllTeacher();
+
+    /**
+     * 权限设置 老师->管理员
+     * */
+    boolean ChangeRightOfTeacher(String tid);
 }
