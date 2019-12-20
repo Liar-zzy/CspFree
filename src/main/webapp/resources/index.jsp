@@ -128,7 +128,7 @@
 			{
 				tab = layui.bodyTab({
 					openTabNum : "50",  //最大可打开窗口数量
-					url : "json/navs-stu.json" //获取菜单json地址
+					url : "json/navs-student.json" //获取菜单json地址
 				});
 			}
 	    	else if(role=='老师')

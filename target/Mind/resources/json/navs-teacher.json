@@ -3,7 +3,7 @@
 		"title": "成绩分析",
 		"icon": "&#xe655;",
 
-		"href": "page/gradeAll.jsp",
+		"href": "page/tea-man-GradeAll.jsp",
 
 		"spread": false
 	},
