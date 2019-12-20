@@ -17,6 +17,8 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="${webRoot}/resources/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="${webRoot}/resources/css/public.css" media="all" />
+	<script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery-3.4.1.js"></script>
+
 </head>
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote layui-bg-green">
