@@ -28,9 +28,11 @@ public interface StuGradeService {
      * */
     List<StuGrade> ListSelfGrade(String sid);
 
+
     /**
      * 上传学生成绩
      * @param stuGrade
      */
     void StuGradeUpload(StuGrade stuGrade);
+    /*void StuGradeUpload(StuGrade stuGrade);*/
 }
