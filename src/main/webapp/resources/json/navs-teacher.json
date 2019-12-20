@@ -3,7 +3,7 @@
 		"title": "成绩分析",
 		"icon": "&#xe655;",
 
-		"href": "page/gradeAll.html",
+		"href": "page/gradeAll.jsp",
 
 		"spread": false
 	},

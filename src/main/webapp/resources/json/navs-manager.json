@@ -3,26 +3,26 @@
 		"title": "上传成绩",
 		"icon": "&#xe655;",
 
-		"href": "page/teaupGrade.html",
+		"href": "page/teaupGrade.jsp",
 
 		"spread": false
 	},
 	{
 		"title": "用户管理",
 		"icon": "&#xe634;",
-		"href": "page/.html",
+		"href": "",
 		"spread": false,
 		"children": [
 			{
 				"title": "学生管理",
 				"icon": "&#xe61c;",
-				"href": "page/404.html",
+				"href": "/user/ListAllStu",
 				"spread": false
 			},
 			{
 				"title": "教师管理",
 				"icon": "&#xe609;",
-				"href": "page/.html",
+				"href": "/user/ListAllTeacher",
 				"spread": false
 			}
 		]

@@ -104,10 +104,10 @@
 			contentType:'application/json',
 			data:JSON.stringify(alteredobj),
 			success:function (data) {
-				if(data.update=="success"){
-					layer.msg("修改成功")
-				}
-				$('#alter-modal').modal('hide')
+				// if(data.update=="success"){
+				// 	layer.msg("修改成功")
+				// }
+
 				setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
 					window.location.reload();//页面刷新
 				},2000);

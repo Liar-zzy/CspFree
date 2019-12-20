@@ -74,14 +74,6 @@ public class User {
         this.role = role;
     }
 
-    public String getIsSginUp() {
-        return isSignUp;
-    }
-
-    public void setIsSginUp(String isSginUp) {
-        this.isSignUp = isSginUp;
-    }
-
     public String getIdentify() {
         return identify;
     }
