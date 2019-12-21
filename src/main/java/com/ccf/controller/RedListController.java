@@ -22,11 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/RedList")
@@ -77,9 +73,12 @@ public class RedListController {
         {
             User user = userService.GetAUser(list.get(i).getSid());
             RedList redList = new RedList();
-
-            if(user.getIsSignUp().equals("1") && list.get(i).getGrade() >= limitScore)
+            int grade = list.get(i).getGrade();
+            System.out.println(user.getName()+"aaaaa");
+            if(user.getIsSignUp().equals("1") && grade >= limitScore)
             {
+                System.out.println(user.getName());
+                System.out.println(grade);
                 redList.setName(user.getName());
                 redList.setIdentify(user.getIdentify());
                 redList.setMoney(0);
@@ -87,16 +86,18 @@ public class RedListController {
             }
         }
         scoreNum--;
+        System.out.println("score ending!!!");
 
         for (int i = 0; i < freeLists.size(); i++) {
             int flag = 1;
-            if(scoreNum >= sum){
+            if(scoreNum >= sum-1){
                 break;
             }
             String fname = freeLists.get(i).getName();
             for (int j = 0; j < ListRed.size(); j++) {
                 if(ListRed.get(j).getName().equals(fname))
                 {
+                    System.out.println("Repeat !!!");
                     flag = 0;
                     break;
                 }
@@ -106,10 +107,42 @@ public class RedListController {
                 RedList redList = new RedList();
                 User user = userService.GetAUser(freeLists.get(i).getSid());
                 scoreNum++;
+
+                System.out.println("add");
+                System.out.println(user.getName());
+
                 redList.setName(user.getName());
                 redList.setIdentify(user.getIdentify());
                 redList.setMoney(0);
                 ListRed.add(scoreNum, redList);
+            }
+        }
+        /**
+         * 红名单选取结束
+         * */
+
+        /**
+         * 先清除数据
+         * */
+         boolean success = redListService.ClearRedList();
+         if(success){
+             System.out.println("clear success!");
+         }else {
+             System.out.println("claer fail");
+         }
+        /**
+         * 开始添加团报码并插入数据库
+         * */
+        UUID uuid = UUID.randomUUID();
+        System.out.println(uuid);
+        for (int i = 0; i < ListRed.size(); i++) {
+            ListRed.get(i).setGroupCode(uuid.toString());
+            success = redListService.addIntoRedList(ListRed.get(i));
+            if(success){
+                System.out.println("insert success!");
+            }else
+            {
+                System.out.println("insert fail!");
             }
         }
 

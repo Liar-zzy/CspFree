@@ -8,6 +8,16 @@ public class RedList {
 
     private int money;
 
+    private String groupCode;
+
+    public String getGroupCode() {
+        return groupCode;
+    }
+
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
+    }
+
     public String getName() {
         return name;
     }

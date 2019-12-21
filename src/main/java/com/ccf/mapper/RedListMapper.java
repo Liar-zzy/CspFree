@@ -12,4 +12,9 @@ public interface RedListMapper {
      * */
     int addIntoRed(@Param("addRed") RedList redList);
 
+
+    /**
+     * 清楚数据
+     * */
+    int ClearRed();
 }

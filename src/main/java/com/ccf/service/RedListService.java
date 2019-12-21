@@ -9,5 +9,9 @@ public interface RedListService {
      * */
     boolean addIntoRedList(RedList redList);
 
+    /**
+     * 清楚数据
+     * */
+    boolean ClearRedList();
 }
 

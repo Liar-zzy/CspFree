@@ -3,7 +3,10 @@
 <mapper namespace="com.ccf.mapper.RedListMapper">
 
     <insert id="addIntoRed" parameterType="com.ccf.pojo.RedList">
-        insert into redList values (#{addRed.name},#{addRed.identify},#{addRed.money})
+        insert into redList values (#{addRed.name},#{addRed.identify},#{addRed.money},#{addRed.groupCode})
     </insert>
 
+    <delete id="ClearRed">
+        delete from redList
+    </delete>
 </mapper>

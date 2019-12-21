@@ -19,4 +19,10 @@ public class RedListServiceImpl implements RedListService {
         return row == 1 ? true : false;
     }
 
+    @Override
+    public boolean ClearRedList() {
+        int row = redListMapper.ClearRed();
+        return row >= 1 ? true : false;
+    }
+
 }
