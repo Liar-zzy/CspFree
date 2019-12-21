@@ -16,6 +16,7 @@ public interface StuGradeMapper {
      */
     @Select("select grade from studentgrade where session = #[session]")
     void findGradeBySession(int session);
+    
     /**
     * 上传场次以及成绩
     * */

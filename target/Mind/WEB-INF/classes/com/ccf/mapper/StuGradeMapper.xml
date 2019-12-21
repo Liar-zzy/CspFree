@@ -3,8 +3,10 @@
 <mapper namespace="com.ccf.mapper.StuGradeMapper">
 
     <insert id="AddGrade" parameterType="com.ccf.pojo.StuGrade">
-        insert into ccfselection.studentgrade values (#{stuGrade.sid}, #{stuGrade.bestGrade},
-        #{stuGrade.lastGrade}, #{stuGrade.grade}, #{stuGrade.session})
+        insert into ccfselection.studentgrade(sid, grade, session, First, Second, Third, Fourth, Fifth)
+        values (#{stuGrade.sid}, #{stuGrade.grade},
+        #{stuGrade.session}, #{stuGrade.first}, #{stuGrade.second},#{stuGrade.third}
+        ,#{stuGrade.fourth},#{stuGrade.fifth})
     </insert>
     <insert id="StuGradeUpload" parameterType="com.ccf.pojo.StuGrade">
         insert into studentgrade(sid,grade,session,First,Second,Third,Fourth,Fifth) values(#{stuGrade.sid}
@@ -19,5 +21,7 @@
     <select id="getSelfGrade" parameterType="String" resultType="com.ccf.pojo.StuGrade">
         select * from studentgrade where sid = #{selfGrade}
     </select>
+
+
 
 </mapper>
