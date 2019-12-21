@@ -32,5 +32,5 @@ public interface StuGradeService {
      * 上传学生成绩
      * @param stuGrade
      */
-    void StuGradeUpload(StuGrade stuGrade);
+    boolean StuGradeUpload(StuGrade stuGrade);
 }

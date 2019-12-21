@@ -88,10 +88,12 @@ public class LeadingExcelController {
         return mav;
     }
 
-    @RequestMapping(value="/ajax")
+    @RequestMapping("/ajax")
     public  void  ajaxUploadExcel(HttpServletRequest request,HttpServletResponse response) throws Exception {
-        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
+        System.out.println("ajaxdoing...");
+
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
         InputStream in =null;
         List<List<Object>> listob = null;
@@ -106,38 +108,54 @@ public class LeadingExcelController {
         //该处可调用service相应方法进行数据保存到数据库中，现只对数据输出
         for (int i = 0; i < listob.size(); i++) {
             List<Object> lo = listob.get(i);
+
             StuGrade stuGrade=new StuGrade();
-            stuGrade.setSid(String.valueOf(lo.get(5)));//第7列表示学号
 
-            String grade=String.valueOf(lo.get(9));//总成绩
-            stuGrade.setGrade(Integer.valueOf(grade));
+            String sid = String.valueOf(lo.get(5));
+            sid = sid.substring(0,12);
+            stuGrade.setSid(sid);
+            //学号
+
+            String grade=String.valueOf(lo.get(9));
+            //总成绩
+            stuGrade.setGrade(Integer.parseInt(grade));
 //
-            String session=String.valueOf(lo.get(7));//成绩单编号
-            session = session.substring(7,9);//截取到的7，到9-1的内容
-            stuGrade.setSession(Integer.valueOf(session));
+            String session=String.valueOf(lo.get(7));
+            //成绩单编号
+            session = session.substring(7,9);
+            //截取到的7，到9-1的内容
+            stuGrade.setSession(Integer.parseInt(session));
 
-            String First=String.valueOf(lo.get(10));//第一题分数
-            stuGrade.setFirst(Integer.valueOf(First));
+            String first =String.valueOf(lo.get(10));
+            //第一题分数
+            stuGrade.setFirst(Integer.parseInt(first));
 
-            String Second=String.valueOf(lo.get(11));//第二题分数
-            stuGrade.setSecond(Integer.valueOf(Second));
+            //第二题分数
+            String second=String.valueOf(lo.get(11));
+            stuGrade.setSecond(Integer.parseInt(second));
 
-            String Third=String.valueOf(lo.get(12));//第三题分数
-            stuGrade.setFifth(Integer.valueOf(Third));
+            //第三题分数
+            String third =String.valueOf(lo.get(12));
+            stuGrade.setThird(Integer.parseInt(third));
 
-            String Fourth=String.valueOf(lo.get(13));//第四题分数
-            stuGrade.setFourth(Integer.valueOf(Fourth));
+            //第四题分数
+            String fourth =String.valueOf(lo.get(13));
 
-            String Fifth=String.valueOf(lo.get(14));//第五题分数
-            stuGrade.setFifth(Integer.valueOf(Fifth));
+            stuGrade.setFourth(Integer.parseInt(fourth));
 
-            stugradeService.StuGradeUpload(stuGrade);
+            //第五题分数
+            String fifth =String.valueOf(lo.get(14));
+            stuGrade.setFifth(Integer.parseInt(fifth));
+
+            boolean success = stugradeService.StuGradeUpload(stuGrade);
+            System.out.println("update :" +success);
 
             System.out.println("打印信息-->"+stuGrade.toString());
         }
 
         PrintWriter out = null;
-        response.setCharacterEncoding("utf-8");  //防止ajax接受到的中文信息乱码
+        response.setCharacterEncoding("utf-8");
+        //防止ajax接受到的中文信息乱码
         out = response.getWriter();
         out.print("文件导入成功！");
         out.flush();
