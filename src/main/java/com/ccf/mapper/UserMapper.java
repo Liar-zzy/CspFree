@@ -66,4 +66,9 @@ public interface UserMapper {
      * 删除用户
      * */
     int deleteUser(@Param("id") String id);
+
+    /**
+     * 查询个人信息
+     * */
+    User GetAUser(@Param("get") String id);
 }

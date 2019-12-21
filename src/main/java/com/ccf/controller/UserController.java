@@ -81,7 +81,7 @@ public class UserController {
         modelAndView.setViewName("page/getFree");
 
         System.out.println("sign : "+user.getId());
-        if(userService.userSignUp("1", user.getId()))
+        if(userService.UpdateInfo(user))
         {
             System.out.println("OKK");
         }
@@ -205,4 +205,6 @@ public class UserController {
         }
         return map;
     }
+
+
 }

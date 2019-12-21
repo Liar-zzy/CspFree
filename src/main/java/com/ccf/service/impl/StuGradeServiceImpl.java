@@ -2,12 +2,11 @@ package com.ccf.service.impl;
 
 import com.ccf.mapper.StuGradeMapper;
 import com.ccf.pojo.StuGrade;
-import com.ccf.service.StuGradeService;
+import com.ccf.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 @Service("StuGradeService")
 public class StuGradeServiceImpl implements StuGradeService {

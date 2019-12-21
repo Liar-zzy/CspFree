@@ -8,4 +8,6 @@ public interface RedListService {
      * 红名单插入
      * */
     boolean addIntoRedList(RedList redList);
+
 }
+
