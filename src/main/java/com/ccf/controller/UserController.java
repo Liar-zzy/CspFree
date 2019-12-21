@@ -53,11 +53,22 @@ public class UserController {
 
     @RequestMapping("/modify")
     @ResponseBody
-    public Map<String, String> ModifyInfo(@RequestBody User user) {
+    public Map<String, String> ModifyInfo(@RequestBody User user,HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User userold = (User)session.getAttribute("SESSION_USER");
+
+
         Map<String, String> map = new HashMap<>();
         boolean success;
 
         success = userService.UpdateInfo(user);
+
+        userold.setPassword(user.getPassword());
+        userold.setIdentify(user.getIdentify());
+        userold.setPhone(user.getPhone());
+        userold.setEmail(user.getEmail());
+
+        session.setAttribute("SESSION_USER",userold);
 
         if (success == true) {
             map.put("update", "success");
