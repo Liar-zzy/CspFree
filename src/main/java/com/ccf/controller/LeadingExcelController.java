@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ccf.pojo.FreeList;
+import com.ccf.service.FreeListService;
 import com.ccf.service.StuGradeService;
 import com.ccf.util.ImportExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class LeadingExcelController {
 
     @Autowired
-    private StuGradeService stugradeService;
+    private FreeListService freeListService;
+
+    @Autowired
+    private StuGradeService stuGradeService;
 
     @RequestMapping("/ajax")
     public  void  ajaxUploadExcel(HttpServletRequest request,HttpServletResponse response) throws Exception {
@@ -84,10 +89,67 @@ public class LeadingExcelController {
             String fifth =String.valueOf(lo.get(14));
             stuGrade.setFifth(Integer.parseInt(fifth));
 
-            boolean success = stugradeService.StuGradeUpload(stuGrade);
+            boolean success = stuGradeService.StuGradeUpload(stuGrade);
             System.out.println("update :" +success);
 
             System.out.println("打印信息-->"+stuGrade.toString());
+        }
+
+        PrintWriter out = null;
+        response.setCharacterEncoding("utf-8");
+        //防止ajax接受到的中文信息乱码
+        out = response.getWriter();
+        out.print("文件导入成功！");
+        out.flush();
+        out.close();
+    }
+
+    @RequestMapping("/FreeList")
+    public  void  ajaxUploadFreeList(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        System.out.println("FreeList...");
+
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+
+        InputStream in =null;
+        List<List<Object>> listob = null;
+        MultipartFile file = multipartRequest.getFile("upfile");
+        if(file.isEmpty()){
+            throw new Exception("文件不存在！");
+        }
+
+        in = file.getInputStream();
+        listob = new ImportExcelUtil().getBankListByExcel(in,file.getOriginalFilename());
+
+        //该处可调用service相应方法进行数据保存到数据库中，现只对数据输出
+        for (int i = 0; i < listob.size(); i++) {
+            List<Object> lo = listob.get(i);
+
+            FreeList freeList=new FreeList();
+
+            //学号
+            String sid = String.valueOf(lo.get(0));
+            sid = sid.substring(0,12);
+            freeList.setSid(sid);
+
+
+            //Rank分数
+            String grade=String.valueOf(lo.get(1));
+            freeList.setRank(Integer.parseInt(grade));
+
+            //名字
+            String session=String.valueOf(lo.get(2));
+            freeList.setName(session);
+
+            //班级号
+            String first =String.valueOf(lo.get(3));
+            freeList.setClassNom(first);
+
+            boolean success = freeListService.UpAllGrade(freeList);
+
+            System.out.println("update FreeList:" +success);
+
+            System.out.println("打印信息-->"+freeList.toString());
         }
 
         PrintWriter out = null;

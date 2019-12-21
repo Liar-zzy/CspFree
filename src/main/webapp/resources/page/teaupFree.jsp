@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>上传考试成绩</title>
+    <title>上传免费名单</title>
     <script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery.form.js"></script>
     <script type="text/javascript" src="${webRoot}/resources/jquery-3.4.1/jquery.form.js"></script>
@@ -30,7 +30,7 @@
         $(document).ready(function(){
             $("#btn").click(function(){ if(checkData()){
                 $('#form1').ajaxSubmit({
-                    url:'${ctx}/uploadExcel/ajax',
+                    url:'${ctx}/uploadExcel/FreeList',
                     dataType: 'text',
                     success: resutlMsg,
                     error: errorMsg
@@ -70,14 +70,14 @@
 
             <h1 style="color: green"><i class="layui-icon layui-icon-carousel" style="font-size: 100px">
 
-            </i> 上传考试成绩</h1>
+            </i> 上传免费名单</h1>
         </legend>
     </fieldset>
 </div>
 
 <form method="POST"  enctype="multipart/form-data" id="form1" action="uploadExcel/form">
 
-    <label>选择考试成绩文件: </label>
+    <label>选择免费文件: </label>
     <input id="upfile" type="file" name="upfile"><br> <br>
 
     <input type="button" value="确定"

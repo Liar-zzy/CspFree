@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccf.mapper.FreeListMapper">
+    <insert id="UpAllGrade" parameterType="com.ccf.pojo.FreeList">
+        insert into freelist(sid,name,classNom,rank)
+        values(#{freeList.sid},#{freeList.name},#{freeList.classNom},#{freeList.rank})
+    </insert>
 
     <select id="getFreeList" resultType="com.ccf.pojo.FreeList">
 
@@ -10,4 +14,5 @@
     <select id="getAFreeList" resultType="com.ccf.pojo.FreeList" parameterType="string">
         select * from freelist where name = #{name};
     </select>
+
 </mapper>
