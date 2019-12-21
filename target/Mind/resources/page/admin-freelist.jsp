@@ -42,7 +42,7 @@
         layer.open({
             type: 1,
             title: '设定免费分数',
-            content: $("#saveOrUpdateDiv"),
+            content: $("#saveOrUpdateDiv2"),
             area: ['400px', '200px'],
             success: function (index) {
                 $("#dataFrm")[0].reset();
@@ -116,7 +116,7 @@
 					<label class="layui-form-label" style="color:red">人数：</label>
 					<div class="layui-input-inline">
 						<input type="text" name="num"  id="numall"  autocomplete="off"
-							class="layui-input">
+							class="layui-input" value="150">
 					</div>
 			</div>
 			
@@ -130,13 +130,13 @@
 		</form>
 	</div>
 
-<div style="display: none;padding: 20px" id="saveOrUpdateDiv1" >
+<div style="display: none;padding: 20px" id="saveOrUpdateDiv2" >
     <form class="layui-form " action="/FreeList/getFreeList?score=score" lay-filter="dataFrm" id="dataFrm2">
         <div class="layui-form-item" >
             <label class="layui-form-label" style="color:red">分数：</label>
             <div class="layui-input-inline">
                 <input type="text" name="score"  id="score"  autocomplete="off"
-                       class="layui-input">
+                       class="layui-input" value="300" >
             </div>
         </div>
 

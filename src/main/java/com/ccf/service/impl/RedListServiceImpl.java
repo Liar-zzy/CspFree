@@ -18,4 +18,5 @@ public class RedListServiceImpl implements RedListService {
         int row = redListMapper.addIntoRed(redList);
         return row == 1 ? true : false;
     }
+
 }

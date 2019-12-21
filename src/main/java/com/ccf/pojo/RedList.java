@@ -31,4 +31,6 @@ public class RedList {
     public void setMoney(int money) {
         this.money = money;
     }
+
 }
+

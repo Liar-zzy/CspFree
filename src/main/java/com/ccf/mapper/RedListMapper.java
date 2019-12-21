@@ -11,4 +11,5 @@ public interface RedListMapper {
      * 红名单插入
      * */
     int addIntoRed(@Param("addRed") RedList redList);
+
 }

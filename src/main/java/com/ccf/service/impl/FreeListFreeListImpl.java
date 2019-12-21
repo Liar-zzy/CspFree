@@ -26,4 +26,11 @@ public class FreeListFreeListImpl implements FreeListService {
         return list;
     }
 
+    @Override
+    public boolean UpAllGrade(FreeList freeList) {
+        int row = freeListMapper.UpAllGrade(freeList);
+        return row == 1? true : false;
+
+    }
+
 }

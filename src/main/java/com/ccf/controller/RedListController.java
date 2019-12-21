@@ -1,6 +1,7 @@
 package com.ccf.controller;
 
 
+
 import com.ccf.pojo.FreeList;
 import com.ccf.pojo.RedList;
 import com.ccf.pojo.StuGrade;
@@ -10,17 +11,20 @@ import com.ccf.service.RedListService;
 import com.ccf.service.StuGradeService;
 import com.ccf.service.UserService;
 import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import java.util.Map;
 
 @Controller
@@ -29,6 +33,7 @@ public class RedListController {
 
     @Autowired
     private RedListService redListService;
+
 
     @Autowired
     private StuGradeService stuGradeService;
@@ -99,3 +104,4 @@ public class RedListController {
     }
 
 }
+
