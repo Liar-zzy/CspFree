@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,20 +45,31 @@ public class RedListController {
     @Autowired
     private FreeListService freeListService;
 
-    @RequestMapping("insertIntoRedList")
+    @RequestMapping("/insertIntoRedList")
     @ResponseBody
-    public ModelAndView insertIntoRedList(@Param("num")String num, @Param("name")String name,
+    public ModelAndView insertIntoRedList(@Param("num")String num , @Param("name")String name,
                                           @Param("score") String score , HttpServletRequest request)
     {
+        HttpSession session = request.getSession();
+        User u = (User)session.getAttribute("SESSION_USER");
+
         List<RedList> ListRed = new ArrayList<>();
         ModelAndView mv = new ModelAndView();
         System.out.println("num :"+num);
+        System.out.println("score :"+score);
+        System.out.println("name :"+name);
 
-
+        int limitScore = 0;
         int scoreNum = 0;
         int sum;
-
+        if (num==null || score==null)
+        {
+            num="150";
+            score="300";
+        }
         sum = Integer.parseInt(num);
+        limitScore = Integer.parseInt(score);
+
         List<StuGrade> list = stuGradeService.ListAllGradeBySession(19);
         List<FreeList> freeLists = freeListService.getFreelist();
 
@@ -66,7 +78,7 @@ public class RedListController {
             User user = userService.GetAUser(list.get(i).getSid());
             RedList redList = new RedList();
 
-            if(user.getIsSignUp().equals("1"))
+            if(user.getIsSignUp().equals("1") && list.get(i).getGrade() >= limitScore)
             {
                 redList.setName(user.getName());
                 redList.setIdentify(user.getIdentify());
@@ -78,7 +90,9 @@ public class RedListController {
 
         for (int i = 0; i < freeLists.size(); i++) {
             int flag = 1;
-            if(scoreNum >= sum) break;
+            if(scoreNum >= sum){
+                break;
+            }
             String fname = freeLists.get(i).getName();
             for (int j = 0; j < ListRed.size(); j++) {
                 if(ListRed.get(j).getName().equals(fname))
@@ -98,8 +112,43 @@ public class RedListController {
                 ListRed.add(scoreNum, redList);
             }
         }
-        mv.addObject("RedList", ListRed);
-        mv.setViewName("");
+
+        boolean isExist=false;
+        List<RedList>  redOne= new ArrayList<>();
+
+        //查看是否存在 name
+        for(int i=0;i<ListRed.size();i++)
+        {
+            if(ListRed.get(i).getName().equals(name))
+            {
+                isExist=true;
+
+                RedList red=new RedList();
+                red.setName(ListRed.get(i).getName());
+                red.setIdentify(ListRed.get(i).getIdentify());
+                red.setMoney(ListRed.get(i).getMoney());
+                redOne.add(red);
+                break;
+            }
+        }
+
+        if(isExist)
+        {
+            mv.addObject("RedList", redOne);
+            System.out.println("redOne");
+        }
+        else {
+            mv.addObject("RedList", ListRed);
+            System.out.println("ListRed");
+        }
+
+        if(u.getRole()=="老师")
+        {
+            mv.setViewName("page/teacher-freelist");
+        }
+        else {
+            mv.setViewName("page/admin-freelist");
+        }
         return mv;
     }
 

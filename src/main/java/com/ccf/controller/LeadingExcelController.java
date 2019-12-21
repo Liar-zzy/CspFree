@@ -2,18 +2,25 @@ package com.ccf.controller;
 
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ccf.pojo.FreeList;
+import com.ccf.pojo.Grade;
+import com.ccf.pojo.User;
 import com.ccf.service.FreeListService;
 import com.ccf.service.StuGradeService;
 import com.ccf.util.ImportExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -105,7 +112,7 @@ public class LeadingExcelController {
     }
 
     @RequestMapping("/FreeList")
-    public  void  ajaxUploadFreeList(HttpServletRequest request,HttpServletResponse response) throws Exception {
+    public void ajaxUploadFreeList(HttpServletRequest request,HttpServletResponse response) throws Exception {
 
         System.out.println("FreeList...");
 
@@ -161,4 +168,24 @@ public class LeadingExcelController {
         out.close();
     }
 
+    @RequestMapping("/upGrade")
+    @ResponseBody
+    public Map<String,String> updateAUser(@RequestBody StuGrade stuGrade , HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User u = (User)session.getAttribute("SESSION_USER");
+        stuGrade.setSid(u.getId());
+
+        boolean success;
+        success = stuGradeService.AddStuGrade(stuGrade);
+
+        if(success) {
+            System.out.println("upGrade success");
+        } else {
+            System.out.println("upGrade fail");
+        }
+
+        Map<String, String > map = new HashMap<>();
+        map.put("upGrade","success");
+        return map;
+    }
 }

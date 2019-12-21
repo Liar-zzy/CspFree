@@ -3,6 +3,7 @@
 <% String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <c:set var="webRoot" value="<%=basePath%>"/>
 <!DOCTYPE html>
 <html>
