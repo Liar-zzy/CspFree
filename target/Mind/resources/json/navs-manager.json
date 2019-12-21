@@ -39,7 +39,7 @@
 
 		"title": "查看成绩分析",
 		"icon": "&#xe630;",
-		"href": "page/teaupGrade.jsp",
+		"href": "page/tea-man-GradeAll.jsp",
 
 		"spread": false
 	},

@@ -10,7 +10,7 @@
             </if>
 
             <if test="updateInfo.isSignUp != null and updateInfo.isSignUp != ''">
-                isSignUp = #{updateInfo.isSginUp},
+                isSignUp = #{updateInfo.isSignUp},
             </if>
 
             <if test="updateInfo.identify != null and updateInfo.identify != ''">

@@ -2,7 +2,9 @@ package com.ccf.controller;
 
 import com.ccf.pojo.Grade;
 import com.ccf.pojo.StuGrade;
+import com.ccf.pojo.User;
 import com.ccf.service.StuGradeService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 @Controller
-@RequestMapping("/StuGrade")
+@RequestMapping("/resources/stuGrade")
 public class StuGradeController {
 
     @Autowired
@@ -22,7 +29,7 @@ public class StuGradeController {
 
     @RequestMapping("/ListAllGradeBySession")
     @ResponseBody
-    public ModelAndView ListAllGradeBySession(Model model, int session)
+    public ModelAndView ListAllGradeBySession(Model model, @Param("session") int session)
     {
         List<StuGrade> list = stuGradeService.ListAllGradeBySession(session);
         ModelAndView me = new ModelAndView();
@@ -37,18 +44,20 @@ public class StuGradeController {
     }
 
     @RequestMapping("/ListSelfGrade")
-    @ResponseBody
-    public ModelAndView ListSelfGrade(Model model, String sid)
+    public ModelAndView ListSelfGrade(HttpServletRequest request)
     {
-        List<StuGrade> list = stuGradeService.ListSelfGrade(sid);
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("SESSION_USER");
+
+        List<StuGrade> list = stuGradeService.ListSelfGrade(user.getId());
         ModelAndView mv = new ModelAndView();
-        model.addAttribute("ListSelfGrade",list);
+        mv.addObject("ListSelfGrade",list);
         for (int i = 0; i < list.size(); i++)
         {
             System.out.println(list.get(i).getSid());
         }
         System.out.println("ListSelfGrade");
-        mv.setViewName("page/");
+        mv.setViewName("page/stuGradeAll");
         return mv;
     }
 
