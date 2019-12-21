@@ -135,12 +135,13 @@
         <%--    }--%>
         <%--})--%>
         console.log("点击getFree")
-
         $.ajax({
             type: 'POST',
             url: '${ctx}/user/signUp',
         });
-
+        setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+            window.location.reload();//页面刷新
+        },2000);
 
     });
 </script>

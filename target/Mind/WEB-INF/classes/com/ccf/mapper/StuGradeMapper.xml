@@ -8,11 +8,11 @@
     </insert>
 
     <select id="getAllGrade" parameterType="int" resultType="com.ccf.pojo.StuGrade">
-        select * from studentgrade order by grade desc where session = #{getAll};
+        select * from studentgrade  where session = #{getAll} order by grade desc
     </select>
 
     <select id="getSelfGrade" parameterType="String" resultType="com.ccf.pojo.StuGrade">
-        select * from studentgrade where sid = #{selfGrade};
+        select * from studentgrade where sid = #{selfGrade}
     </select>
 
 </mapper>
