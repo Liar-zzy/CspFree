@@ -33,6 +33,24 @@
     }
 </script>
 
+<script>
+    function openAddUser1() {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var table = layui.table;//加载表格模块
+        var form = layui.form;
+        layer.open({
+            type: 1,
+            title: '设定免费分数',
+            content: $("#saveOrUpdateDiv2"),
+            area: ['400px', '200px'],
+            success: function (index) {
+                $("#dataFrm")[0].reset();
+            }
+        });
+    }
+</script>
+
 <!-- 搜索条件开始 -->
 <div class="menu">
 
@@ -55,6 +73,7 @@
                 <input type="submit" class="layui-btn layui-btn-danger" value="搜索" id="search" >
 <%--                <button class="layui-btn" data-type="reload">搜索</button>--%>
                 <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">设定免费人数(默认150)</button>
+                <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser1()">设定免费分数(默认300)</button>
             </div>
         </div>
     </form>
@@ -94,10 +113,10 @@
 	<div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
 		<form class="layui-form " action="/FreeList/getFreeList?num=#numall" lay-filter="dataFrm" id="dataFrm">
 			<div class="layui-form-item" >
-					<label class="layui-form-label" style="color:red">分数线：</label>
+					<label class="layui-form-label" style="color:red">人数：</label>
 					<div class="layui-input-inline">
 						<input type="text" name="num"  id="numall"  autocomplete="off"
-							class="layui-input">
+							class="layui-input" value="150">
 					</div>
 			</div>
 			
@@ -110,6 +129,26 @@
 		  </div>
 		</form>
 	</div>
+
+<div style="display: none;padding: 20px" id="saveOrUpdateDiv2" >
+    <form class="layui-form " action="/FreeList/getFreeList?score=score" lay-filter="dataFrm" id="dataFrm2">
+        <div class="layui-form-item" >
+            <label class="layui-form-label" style="color:red">分数：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="score"  id="score"  autocomplete="off"
+                       class="layui-input" value="300" >
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align: center;">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn layui-btn-normal
+		      layui-btn-sm layui-icon layui-icon-release" lay-filter="doSubmit" >提交</button>
+                <button type="reset" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh" >重置</button>
+            </div>
+        </div>
+    </form>
+</div>
 	
   	
 	<!-- 添加和修改的弹出层结束 -->
