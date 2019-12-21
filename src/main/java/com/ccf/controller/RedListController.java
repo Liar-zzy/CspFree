@@ -13,7 +13,6 @@ import com.ccf.service.UserService;
 import org.apache.ibatis.annotations.Param;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,10 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
-import java.util.Map;
 
 @Controller
 @RequestMapping("/RedList")
@@ -70,6 +66,8 @@ public class RedListController {
         sum = Integer.parseInt(num);
         limitScore = Integer.parseInt(score);
 
+        System.out.println(sum);
+        System.out.println(limitScore);
         List<StuGrade> list = stuGradeService.ListAllGradeBySession(19);
         List<FreeList> freeLists = freeListService.getFreelist();
 
@@ -80,6 +78,8 @@ public class RedListController {
 
             if(user.getIsSignUp().equals("1") && list.get(i).getGrade() >= limitScore)
             {
+                System.out.println(user.getName());
+                System.out.println(list.get(i).getGrade());
                 redList.setName(user.getName());
                 redList.setIdentify(user.getIdentify());
                 redList.setMoney(0);
@@ -87,13 +87,21 @@ public class RedListController {
             }
         }
         scoreNum--;
+        System.out.println("limitScore ending!!!");
+        for(int i = 0; i <= scoreNum; i++){
+            System.out.println(ListRed.get(i).getName());
+        }
+
 
         for (int i = 0; i < freeLists.size(); i++) {
             int flag = 1;
             if(scoreNum >= sum){
                 break;
             }
+
             String fname = freeLists.get(i).getName();
+
+            System.out.println(fname);
             for (int j = 0; j < ListRed.size(); j++) {
                 if(ListRed.get(j).getName().equals(fname))
                 {
@@ -101,6 +109,7 @@ public class RedListController {
                     break;
                 }
             }
+
             if(flag == 1)
             {
                 RedList redList = new RedList();
@@ -110,6 +119,7 @@ public class RedListController {
                 redList.setIdentify(user.getIdentify());
                 redList.setMoney(0);
                 ListRed.add(scoreNum, redList);
+                System.out.println("add");
             }
         }
 
@@ -144,7 +154,7 @@ public class RedListController {
 
         if(u.getRole()=="老师")
         {
-            mv.setViewName("page/teacher-freelist");
+            mv.setViewName("page/teacher-freelist3");
         }
         else {
             mv.setViewName("page/admin-freelist");

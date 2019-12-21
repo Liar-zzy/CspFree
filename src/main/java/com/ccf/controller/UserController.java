@@ -76,10 +76,8 @@ public class UserController {
         User user = (User)session.getAttribute("SESSION_USER");
         ModelAndView modelAndView = new ModelAndView();
 
-
-
         modelAndView.setViewName("page/getFree");
-
+        user.setIsSignUp("1");
         System.out.println("sign : "+user.getId());
         if(userService.UpdateInfo(user))
         {
