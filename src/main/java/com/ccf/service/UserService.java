@@ -1,6 +1,7 @@
 package com.ccf.service;
 
 import com.ccf.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -55,4 +56,9 @@ public interface UserService {
      * 删除用户
      * */
     boolean deleteUser(String id);
+
+    /**
+     * 查询个人信息
+     * */
+    User GetAUser(String id);
 }

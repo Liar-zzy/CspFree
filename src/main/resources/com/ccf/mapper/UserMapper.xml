@@ -49,4 +49,8 @@
     <delete id="deleteUser" parameterType="string">
         delete from user where id = #{id}
     </delete>
+
+    <select id="GetAUser" parameterType="string" resultType="com.ccf.pojo.User">
+        select * from user where id = #{get};
+    </select>
 </mapper>
