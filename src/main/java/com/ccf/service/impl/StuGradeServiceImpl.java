@@ -39,8 +39,8 @@ public class StuGradeServiceImpl implements StuGradeService {
     }
 
     @Override
-    public void StuGradeUpload(StuGrade stuGrade) {
-        sMapper.StuGradeUpload(stuGrade);
-        System.out.println("StuGradeUpload doing");
+    public boolean StuGradeUpload(StuGrade stuGrade) {
+        int row = sMapper.StuGradeUpload(stuGrade);
+        return row == 1? true : false;
     }
 }

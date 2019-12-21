@@ -51,14 +51,14 @@
             <h1 style="color: green">学生管理</h1>
         </legend>
     </fieldset>
-    <form class="layui-form" action="/market_3x/UserServlet?type=query" method="post">
+    <form class="layui-form" action="/user/ListAllStu?name=#searchname" >
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">
                     <p1 style="font-size:16px;">姓名：</p1>
                 </label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" name="input" value="${input }">
+                    <input class="layui-input" name="name" id="searchname">
                 </div>
                 <input type="submit" class="layui-btn layui-btn-danger" value="查询">
                 <!-- <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">添加学生</button> -->
@@ -162,15 +162,31 @@
             if (layEvent === 'del') { //删除
 
                 //layer.msg("删除");
-                //console.log(data[1]);
+                console.log(data[1])
+                var id=data[1]
 
-                layer.confirm('真的删除行么', function (index) {
-                    layer.close(index);
-                    //向服务端发送删除指令
-                    //alert(data[1]);
-                    window.location.href = "/market_3x/UserServlet?type=del&id=" + data[1] + ""
+                var alterobj={
+                    id:id,
+                }
+                $.ajax({
+                    url:'${ctx}/user/deleteUser',
+                    type:'post',
+                    contentType:'application/json',
+                    data:JSON.stringify(alterobj),
+                    success:function (databack) {
+                        console.log(databack)
+                        if(databack.deleteUser=="success"){
+                            layer.msg("授权成功")
+                        }
+                        setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+                            window.location.reload();//页面刷新
+                        },2000);
+                    }
+                })
 
-                });
+
+
+
             } else if (layEvent === 'edit') { //编辑
                 //layer.msg("编辑");
                 //openUpdateUser();
@@ -226,7 +242,7 @@
             //alert(url);
             //这是没得办法，url传不过来
             if (typeof (url) == "undefined") {
-                url = "/market_3x/UserServlet?type=add";
+                url = "";
             }
             //alert(url);
             //序列化表单数据

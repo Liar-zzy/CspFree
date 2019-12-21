@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,10 +93,33 @@ public class UserController {
     }
 
     @RequestMapping("/ListAllStu")
-    public ModelAndView ListAllStu(HttpSession session) {
+    public ModelAndView ListAllStu(@Param("name")String name) {
         ModelAndView mv = new ModelAndView();
         List<User> list = userService.getAllStu();
-        mv.addObject("SESSION_STU", list);
+        List<User> list1= new ArrayList<>();
+        User user = new User();
+        boolean isOne=false;
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getName());
+            if (list.get(i).getName().equals(name))
+            {
+                isOne=true;
+                user.setIsSignUp(list.get(i).getIsSignUp());
+                user.setId(list.get(i).getId());;
+                user.setEmail(list.get(i).getEmail());
+                user.setIdentify(list.get(i).getIdentify());
+                user.setName(list.get(i).getName());
+                user.setPassword(list.get(i).getPassword());
+                list1.add(user);
+                break;
+            }
+        }
+        if (isOne){
+            mv.addObject("SESSION_STU",list1);
+        }
+        else{
+            mv.addObject("SESSION_STU",list);
+        }
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getName());
@@ -107,10 +131,32 @@ public class UserController {
     }
 
     @RequestMapping("/ListAllTeacher")
-    public ModelAndView ListAllTeacher(HttpSession session) {
+    public ModelAndView ListAllTeacher(@Param("name")String name) {
         ModelAndView mv = new ModelAndView();
         List<User> list = userService.getAllTeacher();
-        mv.addObject("SESSION_TEA", list);
+        List<User> list1= new ArrayList<>();
+        User user = new User();
+        boolean isOne=false;
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getName());
+            if (list.get(i).getName().equals(name))
+            {
+                isOne=true;
+                user.setId(list.get(i).getId());;
+                user.setEmail(list.get(i).getEmail());
+                user.setIdentify(list.get(i).getIdentify());
+                user.setName(list.get(i).getName());
+                user.setPassword(list.get(i).getPassword());
+                list1.add(user);
+                break;
+            }
+        }
+        if (isOne){
+            mv.addObject("SESSION_TEA",list1);
+        }
+        else{
+            mv.addObject("SESSION_TEA",list);
+        }
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getName());
@@ -123,9 +169,12 @@ public class UserController {
 
 
     @RequestMapping("/ChangeRightOfTeacher")
-    public Map<String, String> changeRightOfTeacher(Model model, @Param("tid") String tid) {
+    @ResponseBody
+    public Map<String, String> changeRightOfTeacher(@RequestBody User user) {
+
         boolean success;
-        success = userService.ChangeRightOfTeacher(tid);
+        System.out.println("授权 : "+user.getId());
+        success = userService.ChangeRightOfTeacher(user.getId());
         Map<String, String> map = new HashMap<>();
 
         if (success == true) {
@@ -139,9 +188,12 @@ public class UserController {
     }
 
     @RequestMapping("/deleteUser")
-    public Map<String, String> deleteUser(Model model, @Param("id") String id) {
+    @ResponseBody
+    public Map<String, String> deleteUser(@RequestBody User user) {
         boolean success;
-        success = userService.deleteUser(id);
+
+        System.out.println("删除同学 ： "+user.getId());
+        success = userService.deleteUser(user.getId());
         Map<String, String> map = new HashMap<>();
 
         if (success == true) {

@@ -65,7 +65,7 @@
 			<div class="navBar layui-side-scroll" id="navBar">
 				<ul class="layui-nav layui-nav-tree">
 					<li class="layui-nav-item layui-this">
-						<a href="javascript:;" data-url="page/main.html"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a>
+						<a href="javascript:;" data-url="page/main.jsp"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a>
 					</li>
 				</ul>
 			</div>
