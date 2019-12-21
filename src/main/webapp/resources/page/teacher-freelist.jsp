@@ -75,6 +75,7 @@
         <th lay-data="{field:'1',align:'center'}">姓名</th>
         <th lay-data="{field:'2',align:'center',width:240}">身份证</th>
         <th lay-data="{field:'3',align:'center', sort: true,width:240}">金额</th>
+        <th lay-data="{field:'4',align:'center', sort: true,width:240}">团报码</th>
 
         <!-- <th lay-data="{field:'11', toolbar:'#userBar' ,width:250,align:'center', fixed:'right'}">操作</th> -->
     </tr>
@@ -86,6 +87,7 @@
             <td>${user.name}</td>
             <td>${user.identify}</td>
             <td>${user.money}</td>
+            <td>${user.groupCode}</td>
         </tr>
     </c:forEach>
     </tbody>
