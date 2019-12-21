@@ -51,14 +51,14 @@
             <h1 style="color: green">教师管理</h1>
         </legend>
     </fieldset>
-    <form class="layui-form" action="" method="post">
+    <form class="layui-form" action="/user/ListAllStu?name=#searchname" method="post">
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">
                     <p1 style="font-size:16px;">姓名：</p1>
                 </label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" name="input" value="${input }">
+                    <input class="layui-input" name="name" id="searchname">
                 </div>
                 <input type="submit" class="layui-btn layui-btn-danger" value="查询">
                 <!-- <button type="button" class="layui-btn" lay-event="add" onclick="openAddUser()">添加学生</button> -->
@@ -76,7 +76,7 @@
     </div> -->
     <div id="userBar" style="display:none;">
         <a class="layui-btn layui-btn-xs" lay-event="edit">重置密码</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">授权</a>
     </div>
     <thead>
     <tr>
@@ -157,11 +157,31 @@
 
                 //layer.msg("删除");
                 //console.log(data[1]);
+                console.log(data)
+                console.log(data[1])
+                var id=data[1]
 
-                layer.confirm('真的删除行么', function (index) {
-                    layer.close(index);
+                var alterobj={
+                    id:id,
+                }
+                $.ajax({
+                    url:'${ctx}/user/ChangeRightOfTeacher',
+                    type:'post',
+                    contentType:'application/json',
+                    data:JSON.stringify(alterobj),
+                    success:function (databack) {
+                        console.log(databack)
+                        if(databack.RightUpdate=="success"){
+                            layer.msg("授权成功")
+                        }
+                        setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+                            window.location.reload();//页面刷新
+                        },2000);
+                    }
+                })
 
-                });
+
+
             } else if (layEvent === 'edit') { //编辑
                 // layer.msg("编辑");
                 console.log(data)

@@ -25,7 +25,8 @@ public class FreeListController {
     private FreeListService freeListService;
 
     @RequestMapping("/getFreeList")
-    public ModelAndView ListAllFreeList(@Param("num")String num,@Param("name")String name, HttpServletRequest request)
+    public ModelAndView ListAllFreeList(@Param("num")String num,@Param("name")String name,
+                                        @Param("score") String score ,HttpServletRequest request)
     {
         System.out.println("num :"+num);
 
@@ -35,20 +36,21 @@ public class FreeListController {
         ModelAndView modelAndView = new ModelAndView();
         List<FreeList> list;
 
-        boolean isgetFreeList=true;
+        boolean isgetAFreeList=true;
 
         list = freeListService.getAFreelist(name);
 
         if (list.size()==0)
         {
-            isgetFreeList=true;
+            isgetAFreeList=true;
         }
         else{
-            isgetFreeList=false;
+            isgetAFreeList=false;
         }
 
-        if( isgetFreeList)
+        if( isgetAFreeList)
         {
+            //用到 num 和 score
             list = freeListService.getFreelist();
             modelAndView.addObject("FreeList",list);
         }
