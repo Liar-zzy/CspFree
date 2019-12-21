@@ -24,7 +24,7 @@ public interface UserService {
     /**
      * 修改报名状态
      */
-    void userSignUp(int isSignUp,String sid);
+    void userSignUp(String isSignUp,String id);
 
     /**
      * 上传成绩

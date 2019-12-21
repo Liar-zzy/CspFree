@@ -30,8 +30,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void userSignUp(int isSignUp, String sid) {
-        sMapper.userSignUp(isSignUp, sid);
+    public void userSignUp(String isSignUp, String id) {
+         sMapper.userSignUp(isSignUp, id);
+//        return row == 1? true : false;
     }
 
     @Override
