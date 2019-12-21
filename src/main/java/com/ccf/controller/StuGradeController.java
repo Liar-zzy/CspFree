@@ -123,7 +123,7 @@ public class StuGradeController {
         Grade grade3 = new Grade();
         grade3.setName("Third");
         grade3.setAverage(sumScore[2]/size);
-        grade3.setAccuracy((double)(right[0])/(double)(size));
+        grade3.setAccuracy((double)(right[2])/(double)(size));
         gradeList.add(2,grade3);
 
         Grade grade4 = new Grade();

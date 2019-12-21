@@ -10,7 +10,7 @@
 	{
 		"title": "免费名单",
 		"icon": "&#xe634;",
-		"href": "/FreeList/getFreeList",
+		"href": "/RedList/insertIntoRedList?num=150&score=300",
 		"spread": false
 	},
 	{
