@@ -71,7 +71,7 @@
 		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" id="alterAll" lay-filter="changeUser">立即提交</button>
+				<button class="layui-btn"  id="alterAll" >立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
@@ -104,16 +104,17 @@
 			contentType:'application/json',
 			data:JSON.stringify(alteredobj),
 			success:function (data) {
-				// if(data.update=="success"){
-				// 	layer.msg("修改成功")
-				// }
+				if(data.update=="success"){
+					layer.msg("修改成功")
+					setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+						window.location.reload();//页面刷新
+					},3000);
+				}
 
-				setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-					window.location.reload();//页面刷新
-				},2000);
+
 			}
 		})
-
+		return false;
 	});
 </script>
 </body>

@@ -35,19 +35,19 @@
             <h1 style="color: green"><i class="layui-icon layui-icon-file-b" style="font-size: 100px"></i> 考试报名</h1>
         </legend>
     </fieldset>
-    <form class="layui-form" action="/market_3x/GoodsServlet?type=query" method="post">
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">
-                    <p1 style="font-size:16px;">考试名称：</p1>
-                </label>
-                <div class="layui-input-inline">
-                    <input class="layui-input" name="input" value="${input }">
-                </div>
-                <input type="submit" class="layui-btn layui-btn-normal" value="搜索">
-            </div>
-        </div>
-    </form>
+<%--    <form class="layui-form" action="/market_3x/GoodsServlet?type=query" method="post">--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <div class="layui-inline">--%>
+<%--                <label class="layui-form-label">--%>
+<%--                    <p1 style="font-size:16px;">考试名称：</p1>--%>
+<%--                </label>--%>
+<%--                <div class="layui-input-inline">--%>
+<%--                    <input class="layui-input" name="input" value="${input }">--%>
+<%--                </div>--%>
+<%--                <input type="submit" class="layui-btn layui-btn-normal" value="搜索">--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </form>--%>
 </div>
 <fieldset class="layui-elem-field layui-field-title"
           style="margin-top: 30px;">

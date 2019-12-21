@@ -137,7 +137,6 @@
     });
 </script>
 
-<!-- 上传照片 -->
 <script>
     $('#submitGrade').click(function () {
 
@@ -159,10 +158,25 @@
             fifth:fifth,
         }
 
+        var gradeInt = parseInt(grade)
+        var firstInt =parseInt(first)
+        var secondInt = parseInt(second)
+        var thirdInt =parseInt(third)
+        var fourthInt = parseInt(fourth)
+        var fifthInt =parseInt(fifth)
 
-        alert('上传成功');
 
+        // if(sessionInt != nin||18||17||16||15)
+        // {
+        //     alert("报名信息错误")
+        //     return false;
+        // }
 
+        if(gradeInt!=(firstInt+secondInt+thirdInt+fourthInt+fifthInt))
+        {
+            alert("信息错误")
+            return false;
+        }
 
         $.ajax({
             url:'${ctx}/uploadExcel/upGrade',
@@ -181,7 +195,7 @@
             }
 
         })
-
+        return false;
     })
 </script>
 </body>
