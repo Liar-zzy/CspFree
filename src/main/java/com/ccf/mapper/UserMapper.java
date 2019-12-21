@@ -33,7 +33,7 @@ public interface UserMapper {
      * 修改报名状态
      */
     @Update("update user set isSignUp = #{isSignUp} where id = #{sid}")
-    int userSignUp(String isSignUp,String sid);
+    int userSignUp(@Param("isSignUp") String isSignUp,@Param("sid") String sid);
 
     /**
      * 上传成绩
@@ -66,4 +66,6 @@ public interface UserMapper {
      * 删除用户
      * */
     int deleteUser(@Param("id") String id);
+
+
 }

@@ -52,22 +52,11 @@ public class UserController {
 
     @RequestMapping("/modify")
     @ResponseBody
-    public Map<String, String> ModifyInfo(@RequestBody User user, HttpServletRequest request) {
-        HttpSession session = request.getSession();
+    public Map<String, String> ModifyInfo(@RequestBody User user) {
         Map<String, String> map = new HashMap<>();
         boolean success;
 
-        User user1 = (User) session.getAttribute("SESSION_USER");
-
-        if (user.getId().isEmpty()) {
-            user.setId(user1.getId());
-            System.out.println("id : " + user.getId() + " isSign : " + user.getIsSignUp());
-
-            success = userService.userSignUp("1", user.getId());
-        } else {
-            success = userService.UpdateInfo(user);
-        }
-
+        success = userService.UpdateInfo(user);
 
         if (success == true) {
             map.put("update", "success");
@@ -85,7 +74,8 @@ public class UserController {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("SESSION_USER");
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("SESSION_USER",user);
+
+
 
         modelAndView.setViewName("page/getFree");
 
@@ -94,6 +84,9 @@ public class UserController {
         {
             System.out.println("OKK");
         }
+
+        user.setIsSignUp("1");
+        session.setAttribute("SESSION_USER", user);
 
         return modelAndView;
     }
@@ -161,22 +154,5 @@ public class UserController {
         return map;
     }
 
-    @RequestMapping("/ChangeRightOfTeacher")
-    public Map<String, String> ChangeRightOfTeacher(Model model, @Param("id") String id)
-    {
-        boolean success = userService.ChangeRightOfTeacher(id);
-        Map<String, String> map = new HashMap<>();
-
-        if(success == true){
-            map.put("ChangeRight", "success");
-            System.out.println("ChangeRight success");
-        }
-        else
-        {
-            map.put("ChangeRight", "fail");
-            System.out.println("ChangeRight fail");
-        }
-        return map;
-    }
 
 }
