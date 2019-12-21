@@ -8,15 +8,15 @@ public class StuGrade {
 
     private int session;
 
-    private int First;
+    private int first;
 
-    private int Second;
+    private int second;
 
-    private int Third;
+    private int third;
 
-    private int Fourth;
+    private int fourth;
 
-    private int Fifth;
+    private int fifth;
 
     public String getSid() {
         return sid;
@@ -43,43 +43,43 @@ public class StuGrade {
     }
 
     public int getFirst() {
-        return First;
+        return first;
     }
 
     public void setFirst(int first) {
-        First = first;
+        this.first = first;
     }
 
     public int getSecond() {
-        return Second;
+        return second;
     }
 
     public void setSecond(int second) {
-        Second = second;
+        this.second = second;
     }
 
     public int getThird() {
-        return Third;
+        return third;
     }
 
     public void setThird(int third) {
-        Third = third;
+        this.third = third;
     }
 
     public int getFourth() {
-        return Fourth;
+        return fourth;
     }
 
     public void setFourth(int fourth) {
-        Fourth = fourth;
+        this.fourth = fourth;
     }
 
     public int getFifth() {
-        return Fifth;
+        return fifth;
     }
 
     public void setFifth(int fifth) {
-        Fifth = fifth;
+        this.fifth = fifth;
     }
 
     @Override
@@ -88,11 +88,11 @@ public class StuGrade {
                 "sid='" + sid + '\'' +
                 ", grade=" + grade +
                 ", session=" + session +
-                ", First=" + First +
-                ", Second=" + Second +
-                ", Third=" + Third +
-                ", Fourth=" + Fourth +
-                ", Fifth=" + Fifth +
+                ", First=" + first +
+                ", Second=" + second +
+                ", Third=" + third +
+                ", Fourth=" + fourth +
+                ", Fifth=" + fifth +
                 '}';
     }
 }
