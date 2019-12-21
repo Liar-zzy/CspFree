@@ -25,69 +25,6 @@ public class LeadingExcelController {
     @Autowired
     private StuGradeService stugradeService;
 
-    @RequestMapping("/form")
-    public ModelAndView form(HttpServletRequest request)throws Exception{
-        ModelAndView mav = new ModelAndView();
-        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-
-        InputStream in =null;
-        List<List<Object>> listob = null;
-        MultipartFile file = multipartRequest.getFile("upfile");
-
-        if(file.isEmpty()){
-            throw new Exception("文件不存在！");
-        }
-
-        in = file.getInputStream();
-        listob = new ImportExcelUtil().getBankListByExcel(in,file.getOriginalFilename());
-        in.close();
-
-        //该处可调用service相应方法进行数据保存到数据库中，现只对数据输出
-        for (int i = 0; i < listob.size(); i++)
-        {
-            List<Object> lo = listob.get(i);
-            StuGrade stuGrade = new StuGrade();
-//            Family family = new Family();
-//            family.setJtbh(String.valueOf(lo.get(0)));
-//            family.setXm(String.valueOf(lo.get(1)));
-//            family.setHy(String.valueOf(lo.get(2)));
-//            family.setBz(String.valueOf(lo.get(3)));
-
-            String sid = String.valueOf(lo.get(5));
-            sid = sid.substring(0,12);
-            stuGrade.setSid(sid);//学号
-
-            String grade=String.valueOf(lo.get(9));//总成绩
-            stuGrade.setGrade(Integer.valueOf(grade));
-
-            String session=String.valueOf(lo.get(7));//成绩单编号
-            session = session.substring(7,9);//截取到的7，到9-1的内容
-            stuGrade.setSession(Integer.valueOf(session));
-
-            String First=String.valueOf(lo.get(10));//第一题分数
-            stuGrade.setFirst(Integer.valueOf(First));
-
-            String Second=String.valueOf(lo.get(11));//第二题分数
-            stuGrade.setSecond(Integer.valueOf(Second));
-
-            String Third=String.valueOf(lo.get(12));//第三题分数
-            stuGrade.setFifth(Integer.valueOf(Third));
-
-            String Fourth=String.valueOf(lo.get(13));//第四题分数
-            stuGrade.setFourth(Integer.valueOf(Fourth));
-
-            String Fifth=String.valueOf(lo.get(14));//第五题分数
-            stuGrade.setFifth(Integer.valueOf(Fifth));
-
-            stugradeService.StuGradeUpload(stuGrade);
-
-            System.out.println("打印信息-->"+stuGrade.toString());
-        }
-
-        mav.setViewName("../index");
-        return mav;
-    }
-
     @RequestMapping("/ajax")
     public  void  ajaxUploadExcel(HttpServletRequest request,HttpServletResponse response) throws Exception {
 

@@ -1,11 +1,25 @@
 [
 	{
-		"title": "上传成绩",
+		"title": "上传文件",
 		"icon": "&#xe655;",
 
 		"href": "page/teaupGrade.jsp",
 
-		"spread": false
+		"spread": false,
+		"children": [
+			{
+				"title": "上传考试成绩",
+				"icon": "&#xe61c;",
+				"href": "page/teaupGrade.jsp",
+				"spread": false
+			},
+			{
+				"title": "上传免费名单",
+				"icon": "&#xe609;",
+				"href": "/page/teaupFree.jsp",
+				"spread": false
+			}
+		]
 	},
 	{
 		"title": "用户管理",
